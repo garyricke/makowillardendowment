@@ -57,6 +57,223 @@ a { color: inherit; text-decoration: none; }
 button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
 /* ============================================================
+   PASSWORD GATE
+   ============================================================ */
+#password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+#password-gate.unlocked {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+#password-gate.unlocked .gate-video video {
+  animation: none;
+}
+.gate-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.gate-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+}
+.gate-fallback {
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/u2-pilot-cockpit-aurora-night-portrait.jpeg');
+  background-size: cover;
+  background-position: center top;
+}
+.gate-aurora {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 160% 80% at 30% 40%,
+    rgba(100, 140, 255, 0.38) 0%,
+    rgba(60, 100, 200, 0.20) 40%,
+    transparent 70%),
+    radial-gradient(ellipse 120% 60% at 70% 60%,
+    rgba(80, 60, 180, 0.22) 0%,
+    transparent 60%);
+  animation: auroraShift 12s ease-in-out infinite alternate;
+}
+@keyframes auroraShift {
+  0%   { opacity: 0.45; transform: scale(1) translateY(0); }
+  100% { opacity: 0.65; transform: scale(1.04) translateY(-8px); }
+}
+.gate-scanlines {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+}
+.gate-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 32, 0.3) 0%,
+    rgba(6, 14, 32, 0.15) 40%,
+    rgba(6, 14, 32, 0.7) 100%
+  );
+}
+.gate-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 3rem 2.5rem;
+  text-align: center;
+}
+.gate-logo {
+  height: 140px;
+  width: auto;
+  filter: drop-shadow(0 0 24px rgba(182, 196, 255, 0.25));
+  animation: gateLogo 3s ease-in-out infinite alternate;
+}
+@keyframes gateLogo {
+  from { filter: drop-shadow(0 0 20px rgba(182, 196, 255, 0.20)); }
+  to   { filter: drop-shadow(0 0 36px rgba(234, 195, 74, 0.35)); }
+}
+.gate-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  opacity: 0.85;
+}
+.gate-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-shadow: 0 2px 32px rgba(0,0,0,0.7);
+}
+.gate-sub {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.gate-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 340px;
+}
+.gate-input-wrap {
+  position: relative;
+  width: 100%;
+}
+.gate-input-wrap::before {
+  content: '▶';
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.6rem;
+  color: var(--tactical-gold);
+  opacity: 0.7;
+  pointer-events: none;
+}
+#gate-password {
+  width: 100%;
+  padding: 0.9rem 1rem 0.9rem 2.2rem;
+  background: rgba(11, 19, 38, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(182, 196, 255, 0.15);
+  border-radius: 0.25rem;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+#gate-password::placeholder {
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+#gate-password:focus {
+  border-color: rgba(182, 196, 255, 0.4);
+  box-shadow: 0 0 0 3px rgba(182, 196, 255, 0.08),
+              0 0 24px rgba(182, 196, 255, 0.06);
+}
+#gate-password.gate-error {
+  border-color: rgba(238, 38, 62, 0.6);
+  box-shadow: 0 0 0 3px rgba(238, 38, 62, 0.1);
+  animation: gateShake 0.4s ease;
+}
+@keyframes gateShake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+.gate-error-msg {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--dragon-red);
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.2s;
+  height: 1em;
+}
+.gate-error-msg.visible { opacity: 1; }
+.gate-btn {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+  border-radius: 0.25rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  transition: opacity 0.2s, transform 0.15s;
+}
+.gate-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.gate-hint {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ============================================================
    SCROLL PROGRESS BAR
    ============================================================ */
 #scroll-progress {
@@ -83,7 +300,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
-  height: 64px;
+  height: 88px;
   background: rgba(6, 14, 32, 0.82);
   backdrop-filter: blur(18px) saturate(1.4);
   -webkit-backdrop-filter: blur(18px) saturate(1.4);
@@ -97,7 +314,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   flex-shrink: 0;
 }
 .nav-brand img {
-  height: 40px;
+  height: 72px;
   width: auto;
   filter: brightness(1.1);
 }
@@ -1719,9 +1936,9 @@ footer {
   gap: 3rem;
 }
 .footer-logo {
-  height: 52px;
+  height: 140px;
   width: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 .footer-tagline {
   font-size: 0.9rem;
@@ -1862,6 +2079,50 @@ footer {
 </head>
 <body>
 
+<!-- ============================================================
+     PASSWORD GATE
+     ============================================================ -->
+<div id="password-gate" role="dialog" aria-modal="true" aria-label="Access required">
+  <!-- Background layers — mirrors hero exactly -->
+  <div class="gate-video">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/f_auto/v1775173056/hero-video-0_yomdhg.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="gate-fallback" role="img" aria-hidden="true"></div>
+  <div class="gate-aurora" aria-hidden="true"></div>
+  <div class="gate-scanlines" aria-hidden="true"></div>
+  <div class="gate-gradient" aria-hidden="true"></div>
+
+  <!-- Gate UI -->
+  <div class="gate-content">
+    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" class="gate-logo">
+
+    <div>
+      <p class="gate-label">Classified Access — Clearance Required</p>
+      <h1 class="gate-headline">Mako Willard<br>Endowment</h1>
+      <p class="gate-sub">Lt. Col. Dustin Willard · USAF U-2 Dragon Lady</p>
+    </div>
+
+    <form class="gate-form" id="gate-form" autocomplete="off">
+      <div class="gate-input-wrap">
+        <input
+          type="password"
+          id="gate-password"
+          placeholder="Enter access code"
+          autocomplete="new-password"
+          spellcheck="false"
+          aria-label="Password"
+          autofocus
+        >
+      </div>
+      <p class="gate-error-msg" id="gate-error" aria-live="polite"></p>
+      <button type="submit" class="gate-btn">Authenticate Access</button>
+      <p class="gate-hint">Authorized personnel only</p>
+    </form>
+  </div>
+</div>
+
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
 
@@ -1994,6 +2255,9 @@ footer {
      SECTION 2: THE MISSION
      ============================================================ -->
 <section id="mission" aria-label="The Mission">
+  <div style="display: flex; justify-content: center; padding-bottom: 3.5rem;">
+    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" style="height: 200px; width: auto; display: block;">
+  </div>
   <div class="mission-inner">
 
     <div class="mission-left">
@@ -2845,6 +3109,64 @@ footer {
   document.querySelectorAll('#hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('revealed'), 100 + i * 120);
   });
+
+  /* ----------------------------------------------------------
+     15. PASSWORD GATE
+     ---------------------------------------------------------- */
+  (function () {
+    const PASS = 'mako';
+    const SESSION_KEY = 'mako_auth';
+    const gate = document.getElementById('password-gate');
+    const form = document.getElementById('gate-form');
+    const input = document.getElementById('gate-password');
+    const errorMsg = document.getElementById('gate-error');
+
+    function unlock() {
+      sessionStorage.setItem(SESSION_KEY, '1');
+      gate.classList.add('unlocked');
+      document.body.style.overflow = '';
+      // Stop the gate video to free resources
+      const gateVideo = gate.querySelector('video');
+      if (gateVideo) setTimeout(() => gateVideo.pause(), 900);
+    }
+
+    // Already authenticated this session
+    if (sessionStorage.getItem(SESSION_KEY) === '1') {
+      gate.style.display = 'none';
+      return;
+    }
+
+    // Block scroll while gate is visible
+    document.body.style.overflow = 'hidden';
+    input.focus();
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const val = input.value.trim().toLowerCase();
+      if (val === PASS) {
+        errorMsg.textContent = '';
+        errorMsg.classList.remove('visible');
+        unlock();
+      } else {
+        input.classList.remove('gate-error');
+        void input.offsetWidth; // reflow to restart animation
+        input.classList.add('gate-error');
+        errorMsg.textContent = 'Access denied — invalid code';
+        errorMsg.classList.add('visible');
+        input.value = '';
+        input.focus();
+        setTimeout(() => input.classList.remove('gate-error'), 500);
+      }
+    });
+
+    // Allow pressing Enter without submitting the form via keyboard (handled above)
+    input.addEventListener('input', function () {
+      if (input.classList.contains('gate-error')) {
+        input.classList.remove('gate-error');
+        errorMsg.classList.remove('visible');
+      }
+    });
+  })();
 
 })();
 </script>
