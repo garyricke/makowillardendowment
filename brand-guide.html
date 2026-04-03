@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brand Identity Manual — Mako Willard Scholarship Endowment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200;300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=B612+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* =====================================================
+       BRAND IDENTITY MANUAL
+       LT. COL. DUSTIN "MAKO" WILLARD
+       SCHOLARSHIP ENDOWMENT CAMPAIGN
+       Design System: Edge of Space
+       ===================================================== */
+
+    :root {
+      /* PRIMARY BRAND COLORS */
+      --cougar-green:        #006400;
+      --hawkeye-gold:        #FFB500;
+      --dragon-black:        #0B0C10;
+      --dragon-red:          #EE263E;
+      --atmospheric-blue:    #9EC1CC;
+
+      /* DIGITAL SYSTEM COLORS */
+      --primary:             #b6c4ff;
+      --primary-container:   #001c5d;
+      --surface-lowest:      #060e20;
+      --surface:             #0b1326;
+      --surface-low:         #0f1830;
+      --surface-mid:         #1a2540;
+      --surface-highest:     #2d3449;
+      --tactical-gold:       #eac34a;
+
+      /* TYPOGRAPHY */
+      --font-display:  'Bebas Neue', sans-serif;
+      --font-heading:  'Oswald', sans-serif;
+      --font-body:     'Crimson Pro', Georgia, serif;
+      --font-mono:     'B612 Mono', 'Courier New', monospace;
+      --font-ui:       'Rajdhani', sans-serif;
+
+      --gap-section: 100px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--surface-lowest);
+      color: #dce6ff;
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Subtle film grain over everything */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 300px 300px;
+    }
+
+    /* ─── STICKY NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px;
+      background: rgba(6, 14, 32, 0.72);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border-bottom: 1px solid rgba(182,196,255,0.07);
+    }
+    .nav-id {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--tactical-gold);
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(182,196,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* ─── LAYOUT HELPERS ─── */
+    .wrap {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: var(--gap-section) 48px;
+    }
+    .full-bleed { max-width: none; margin: 0; }
+
+    .divider {
+      height: 1px;
+      background: rgba(182,196,255,0.055);
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    /* ─── SECTION MARKERS ─── */
+    .sec-marker {
+      display: flex; align-items: center; gap: 14px;
+      margin-bottom: 44px;
+    }
+    .sec-marker .num {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--tactical-gold);
+      letter-spacing: 0.1em;
+    }
+    .sec-marker .rule {
+      width: 40px; height: 1px;
+      background: var(--tactical-gold); opacity: 0.45;
+    }
+    .sec-marker .tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(182,196,255,0.35);
+    }
+
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      line-height: 0.88;
+      letter-spacing: 0.015em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .sec-sub {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(182,196,255,0.6);
+      max-width: 58ch;
+      margin-bottom: 64px;
+    }
+
+    .group-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tactical-gold);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(234,195,74,0.18);
+    }
+
+    /* =====================================================
+       01  HERO
+       ===================================================== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 72px;
+      overflow: hidden;
+    }
+    .hero-photo {
+      position: absolute; inset: 0;
+      background-image: url('./assets/u2-pilot-cockpit-aurora-borealis-panorama.jpeg');
+      background-size: cover;
+      background-position: center 35%;
+      opacity: 0.22;
+      mix-blend-mode: screen;
+    }
+    .hero-aurora {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 18% 65%, rgba(65,190,110,0.13) 0%, transparent 58%),
+        radial-gradient(ellipse 50% 60% at 82% 32%, rgba(95,50,170,0.1) 0%, transparent 55%),
+        radial-gradient(ellipse 90% 50% at 50% 95%, rgba(6,14,32,0.97) 0%, transparent 55%),
+        linear-gradient(to top, var(--surface-lowest) 0%, transparent 60%);
+      animation: aurora 16s ease-in-out infinite alternate;
+    }
+    @keyframes aurora {
+      0%   { opacity: 1; filter: hue-rotate(0deg);   }
+      50%  { opacity: 0.85; filter: hue-rotate(20deg);  }
+      100% { opacity: 1; filter: hue-rotate(-15deg); }
+    }
+    .hero-scanlines {
+      position: absolute; inset: 0; pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 3px,
+        rgba(0,0,0,0.025) 3px, rgba(0,0,0,0.025) 4px
+      );
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 1360px; margin: 0 auto; width: 100%;
+    }
+    .hero-stamp {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      color: var(--dragon-red);
+      text-transform: uppercase;
+      margin-bottom: 36px;
+      opacity: 0.85;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      color: var(--tactical-gold);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 14vw, 13rem);
+      line-height: 0.86;
+      color: #fff;
+      margin-bottom: 0;
+    }
+    .hero-title .gold { color: var(--tactical-gold); }
+    .hero-title .sub {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.8vw, 3rem);
+      font-weight: 200;
+      letter-spacing: 0.18em;
+      color: var(--atmospheric-blue);
+      display: block;
+      margin-top: 18px;
+    }
+    .hero-meta {
+      display: flex; gap: 40px;
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(182,196,255,0.09);
+    }
+    .hmeta .lbl {
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(182,196,255,0.35);
+      margin-bottom: 3px;
+    }
+    .hmeta .val {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: rgba(182,196,255,0.8);
+    }
+
+    /* Entrance animation */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content > * { animation: fadeUp 0.75s ease both; }
+    .hero-content > *:nth-child(1) { animation-delay: 0.08s; }
+    .hero-content > *:nth-child(2) { animation-delay: 0.22s; }
+    .hero-content > *:nth-child(3) { animation-delay: 0.38s; }
+    .hero-content > *:nth-child(4) { animation-delay: 0.52s; }
+
+    /* =====================================================
+       02  MISSION BRIEF
+       ===================================================== */
+    #mission { background: var(--surface-low); }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .mission-left { position: sticky; top: 84px; }
+    .mission-logo {
+      width: 100%;
+      display: block;
+    }
+    .tele-box {
+      margin-top: 36px;
+      background: var(--surface-highest);
+      border-left: 2px solid var(--tactical-gold);
+      padding: 18px 22px;
+      border-radius: 0 3px 3px 0;
+    }
+    .tele-box .tele-head {
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--tactical-gold);
+      margin-bottom: 12px;
+    }
+    .trow {
+      display: flex; justify-content: space-between;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(182,196,255,0.055);
+    }
+    .trow:last-child { border-bottom: none; }
+    .trow .tk {
+      font-family: var(--font-mono); font-size: 0.6rem;
+      color: rgba(182,196,255,0.38); letter-spacing: 0.04em;
+    }
+    .trow .tv {
+      font-family: var(--font-mono); font-size: 0.6rem;
+      color: var(--primary); letter-spacing: 0.04em;
+    }
+    .mission-right h2 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem; font-weight: 300;
+      letter-spacing: 0.1em; color: #fff;
+      margin-bottom: 20px;
+    }
+    .mission-right p {
+      font-family: var(--font-body);
+      font-size: 1.05rem; line-height: 1.8;
+      color: rgba(220,230,255,0.75);
+      margin-bottom: 18px;
+    }
+    .pillars {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-top: 44px;
+    }
+    .pillar {
+      background: var(--surface-highest);
+      padding: 22px; border-radius: 3px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+    }
+    .pillar .p-icon {
+      font-family: var(--font-display);
+      font-size: 2.2rem; color: var(--tactical-gold);
+      line-height: 1; margin-bottom: 7px;
+    }
+    .pillar h4 {
+      font-family: var(--font-ui); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .pillar p {
+      font-family: var(--font-body); font-size: 0.85rem;
+      color: rgba(182,196,255,0.55); line-height: 1.5; margin: 0;
+    }
+
+    /* =====================================================
+       03  COLOR PALETTE
+       ===================================================== */
+    #colors { background: var(--surface-lowest); }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 56px;
+    }
+    .color-card {
+      border-radius: 3px; overflow: hidden;
+      background: var(--surface-mid);
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .color-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+    }
+    .swatch { height: 148px; position: relative; }
+    .swatch::after {
+      content: '';
+      position: absolute; bottom: 10px; right: 10px;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.22);
+    }
+    .cinfo { padding: 14px 15px; }
+    .cname {
+      font-family: var(--font-ui); font-size: 0.78rem;
+      font-weight: 700; color: #fff; margin-bottom: 3px;
+    }
+    .chex {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--primary); letter-spacing: 0.04em;
+      margin-bottom: 7px;
+    }
+    .cspecs {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: rgba(182,196,255,0.35); line-height: 1.65;
+      letter-spacing: 0.03em;
+    }
+    .cusage {
+      font-family: var(--font-body); font-size: 0.72rem;
+      font-style: italic; color: rgba(182,196,255,0.45);
+      margin-top: 6px; line-height: 1.4;
+    }
+
+    /* Surface stack */
+    .surface-stack {
+      display: flex; gap: 3px;
+      border-radius: 3px; overflow: hidden;
+      margin-bottom: 56px;
+    }
+    .ss-step {
+      flex: 1; padding: 22px 18px;
+    }
+    .ss-lbl {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      color: rgba(182,196,255,0.3); letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 3px;
+    }
+    .ss-hex {
+      font-family: var(--font-mono); font-size: 0.62rem;
+      color: var(--primary); letter-spacing: 0.04em;
+    }
+
+    /* Color rules */
+    .color-rules {
+      background: var(--surface-mid);
+      border-radius: 3px; padding: 36px 40px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+    }
+    .color-rules h4 {
+      font-family: var(--font-display);
+      font-size: 1.7rem; color: #fff; margin-bottom: 28px;
+    }
+    .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .rule-item { display: flex; gap: 14px; align-items: flex-start; }
+    .rule-badge {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      font-weight: 700; letter-spacing: 0.1em;
+      padding: 3px 7px; border-radius: 2px; flex-shrink: 0; margin-top: 1px;
+    }
+    .rule-item.r-no  .rule-badge { background: rgba(238,38,62,0.12); color: var(--dragon-red); }
+    .rule-item.r-yes .rule-badge { background: rgba(182,196,255,0.09); color: var(--primary); }
+    .rule-item .rule-text {
+      font-family: var(--font-body); font-size: 0.88rem;
+      color: rgba(182,196,255,0.65); line-height: 1.5;
+    }
+    .rule-item .rule-text strong { color: rgba(182,196,255,0.85); }
+
+    /* =====================================================
+       04  TYPOGRAPHY
+       ===================================================== */
+    #typography { background: var(--surface); }
+
+    .type-block {
+      margin-bottom: 72px; padding-bottom: 72px;
+      border-bottom: 1px solid rgba(182,196,255,0.055);
+    }
+    .type-block:last-of-type { border-bottom: none; margin-bottom: 0; }
+
+    .type-meta {
+      display: flex; align-items: baseline; gap: 20px; margin-bottom: 22px;
+    }
+    .t-name {
+      font-family: var(--font-mono); font-size: 0.62rem;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--tactical-gold);
+    }
+    .t-role {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: rgba(182,196,255,0.3); letter-spacing: 0.1em;
+    }
+
+    .spec-display {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 16vw, 14rem);
+      line-height: 0.84; color: #fff; letter-spacing: 0.01em;
+      margin-bottom: 16px;
+    }
+    .spec-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 7vw, 7.5rem);
+      font-weight: 200; line-height: 0.9;
+      color: var(--primary); letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 16px;
+    }
+    .spec-body {
+      font-family: var(--font-body);
+      font-size: 1.3rem; line-height: 1.78;
+      color: rgba(220,230,255,0.82); max-width: 64ch; margin-bottom: 16px;
+    }
+    .spec-mono {
+      font-family: var(--font-mono);
+      font-size: 0.95rem; color: var(--hawkeye-gold);
+      letter-spacing: 0.05em; line-height: 1.65; margin-bottom: 16px;
+    }
+
+    .type-note {
+      font-family: var(--font-body); font-size: 0.88rem; font-style: italic;
+      color: rgba(182,196,255,0.45); max-width: 64ch;
+    }
+
+    .type-scale {
+      margin-top: 32px;
+      display: grid; grid-template-columns: auto 1fr auto;
+      gap: 6px 22px; align-items: baseline;
+    }
+    .ts-lbl {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: var(--tactical-gold); letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .ts-sz {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: rgba(182,196,255,0.28); white-space: nowrap; text-align: right;
+    }
+
+    /* =====================================================
+       05  LOGO
+       ===================================================== */
+    #logo { background: var(--surface-low); }
+
+    .logo-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 20px;
+    }
+    .logo-well {
+      background: var(--surface-highest);
+      border-radius: 3px; padding: 52px;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 300px; position: relative;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+    }
+    .logo-well::before {
+      content: attr(data-lbl);
+      position: absolute; top: 14px; left: 18px;
+      font-family: var(--font-mono); font-size: 0.53rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(182,196,255,0.22);
+    }
+    .logo-well img { max-width: 220px; max-height: 220px; object-fit: contain; width: 100%; }
+    .logo-well.bg-black  { background: var(--dragon-black); }
+    .logo-well.bg-surface { background: var(--surface); }
+    .logo-well.bg-white  { background: #edf0fa; }
+    .logo-well.bg-gold   { background: var(--hawkeye-gold); }
+
+    .clearspace-box {
+      background: var(--surface-highest);
+      border-radius: 3px; padding: 36px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+      margin: 20px 0 36px;
+      position: relative;
+    }
+    .clearspace-box::before,
+    .clearspace-box::after {
+      content: '';
+      position: absolute;
+      width: 14px; height: 14px;
+    }
+    .clearspace-box::before {
+      top: -1px; left: -1px;
+      border-top: 1px solid rgba(182,196,255,0.25);
+      border-left: 1px solid rgba(182,196,255,0.25);
+    }
+    .clearspace-box::after {
+      bottom: -1px; right: -1px;
+      border-bottom: 1px solid rgba(182,196,255,0.25);
+      border-right: 1px solid rgba(182,196,255,0.25);
+    }
+    .cs-inner {
+      display: flex; align-items: center; justify-content: center;
+      padding: 32px;
+    }
+    .cs-frame {
+      border: 1px dashed rgba(182,196,255,0.13);
+      padding: 28px; display: inline-block; position: relative;
+    }
+    .cs-frame img { width: 110px; height: 110px; object-fit: contain; display: block; }
+    .cs-lbl {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-mono); font-size: 0.52rem;
+      color: rgba(182,196,255,0.28); letter-spacing: 0.1em; white-space: nowrap;
+    }
+    .cs-lbl.top { top: -18px; }
+    .cs-lbl.bot { bottom: -18px; }
+
+    .logo-dont-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 14px; margin-top: 28px;
+    }
+    .logo-dont {
+      background: var(--surface-mid); border-radius: 3px;
+      padding: 28px 12px; text-align: center;
+      border-top: 2px solid var(--dragon-red);
+    }
+    .logo-dont img {
+      max-width: 72px; max-height: 72px;
+      margin: 0 auto 12px; display: block; opacity: 0.65;
+    }
+    .dont-lbl {
+      font-family: var(--font-mono); font-size: 0.57rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(238,38,62,0.65);
+    }
+
+    /* =====================================================
+       06  COMPONENTS
+       ===================================================== */
+    #components { background: var(--surface-lowest); }
+
+    .comp-label {
+      font-family: var(--font-mono); font-size: 0.6rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(182,196,255,0.35); margin-bottom: 20px;
+    }
+    .comp-section { margin-bottom: 72px; }
+
+    /* Buttons */
+    .btn-row {
+      display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+      padding: 36px 40px; background: var(--surface-mid);
+      border-radius: 3px; margin-bottom: 14px;
+    }
+    .btn {
+      font-family: var(--font-ui); font-size: 0.72rem;
+      font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; padding: 11px 26px;
+      border-radius: 3px; cursor: pointer;
+      transition: all 0.2s; border: none;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-container) 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(182,196,255,0.12);
+    }
+    .btn-primary:hover { box-shadow: 0 8px 28px rgba(182,196,255,0.22); transform: translateY(-1px); }
+    .btn-secondary {
+      background: transparent; color: var(--primary);
+      box-shadow: inset 0 0 0 1px rgba(182,196,255,0.22);
+    }
+    .btn-secondary:hover { box-shadow: inset 0 0 0 1px rgba(182,196,255,0.48); background: rgba(182,196,255,0.03); }
+    .btn-tactical {
+      background: var(--tactical-gold); color: #090a0d; font-weight: 700;
+    }
+    .btn-tactical:hover { background: var(--hawkeye-gold); box-shadow: 0 8px 28px rgba(234,195,74,0.28); transform: translateY(-1px); }
+    .btn-red {
+      background: var(--dragon-red); color: #fff;
+    }
+    .btn-red:hover { box-shadow: 0 8px 28px rgba(238,38,62,0.28); transform: translateY(-1px); }
+    .btn-ghost {
+      background: transparent; color: rgba(182,196,255,0.5); padding: 11px 18px;
+    }
+    .btn-ghost:hover { color: var(--primary); }
+
+    .btn-captions {
+      display: grid; grid-template-columns: repeat(5,1fr);
+      gap: 14px; padding: 0 40px;
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.09em; color: rgba(182,196,255,0.28);
+      text-align: center; text-transform: uppercase;
+    }
+
+    /* Chips */
+    .chip-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-family: var(--font-mono); font-size: 0.62rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 5px 13px; border-radius: 2px;
+      background: var(--surface-highest);
+    }
+    .chip .dot { width: 5px; height: 5px; border-radius: 50%; }
+    .chip.c-active { color: var(--primary); }
+    .chip.c-active .dot { background: var(--primary); animation: blink 2s ease-in-out infinite; box-shadow: 0 0 0 2px rgba(182,196,255,0.14); }
+    .chip.c-warn   { color: var(--tactical-gold); }
+    .chip.c-warn   .dot { background: var(--tactical-gold); animation: blink 1.6s ease-in-out infinite; }
+    .chip.c-alert  { color: var(--dragon-red); }
+    .chip.c-alert  .dot { background: var(--dragon-red); }
+    .chip.c-ok     { color: #4bbd72; }
+    .chip.c-ok     .dot { background: #4bbd72; }
+    .chip.c-mute   { color: rgba(182,196,255,0.4); }
+    .chip.c-mute   .dot { background: rgba(182,196,255,0.25); }
+    @keyframes blink {
+      0%,100% { opacity:1; } 50% { opacity:0.4; }
+    }
+
+    /* Cards */
+    .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .card {
+      background: var(--surface-highest); border-radius: 3px; overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.055);
+      transition: all 0.25s;
+    }
+    .card:hover {
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.14), 0 18px 44px rgba(0,0,0,0.4);
+      transform: translateY(-3px);
+    }
+    .card-img { height: 152px; background-size: cover; background-position: center; position: relative; }
+    .card-img::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 56px;
+      background: linear-gradient(transparent, var(--surface-highest));
+    }
+    .card-body { padding: 18px; }
+    .card-tag {
+      font-family: var(--font-mono); font-size: 0.56rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--tactical-gold); display: block; margin-bottom: 7px;
+    }
+    .card-title {
+      font-family: var(--font-heading); font-size: 0.95rem; font-weight: 600;
+      color: #fff; margin-bottom: 7px; line-height: 1.3;
+    }
+    .card-body p {
+      font-family: var(--font-body); font-size: 0.82rem;
+      color: rgba(182,196,255,0.55); line-height: 1.5; margin: 0;
+    }
+
+    /* Progress bar */
+    .fundraiser {
+      background: var(--surface-highest); border-radius: 3px;
+      padding: 28px 32px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+    }
+    .f-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+    .f-header .f-lbl {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(182,196,255,0.35);
+    }
+    .f-header .f-amt {
+      font-family: var(--font-display); font-size: 1.9rem;
+      color: var(--tactical-gold);
+    }
+    .f-sub {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 14px;
+    }
+    .f-sub .note {
+      font-family: var(--font-body); font-size: 0.88rem; font-style: italic;
+      color: rgba(182,196,255,0.45);
+    }
+    .f-sub .goal {
+      font-family: var(--font-mono); font-size: 0.65rem;
+      color: rgba(182,196,255,0.38); letter-spacing: 0.06em;
+    }
+    .track {
+      height: 3px; background: rgba(182,196,255,0.09);
+      border-radius: 2px; position: relative;
+    }
+    .fill {
+      height: 100%; width: 62%;
+      background: linear-gradient(90deg, var(--primary-container), var(--primary));
+      border-radius: 2px; position: relative;
+    }
+    .fill::after {
+      content: ''; position: absolute; right: -4px; top: 50%; transform: translateY(-50%);
+      width: 9px; height: 9px; border-radius: 50%; background: var(--primary);
+      box-shadow: 0 0 10px rgba(182,196,255,0.6);
+    }
+    .tiers-row {
+      display: flex; justify-content: space-between; margin-top: 14px;
+    }
+    .ftier {
+      font-family: var(--font-mono); font-size: 0.55rem;
+      color: rgba(182,196,255,0.28); letter-spacing: 0.08em; text-align: center;
+    }
+    .ftier.hit { color: var(--primary); }
+    .ftier.next { color: var(--tactical-gold); }
+
+    /* Donation tiers */
+    .donation-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+    .d-tier {
+      background: var(--surface-mid); border-radius: 3px; padding: 22px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+      text-align: center; cursor: pointer; transition: all 0.2s;
+    }
+    .d-tier.feat { box-shadow: 0 0 0 1px rgba(182,196,255,0.2); background: rgba(182,196,255,0.04); }
+    .d-tier:hover { box-shadow: 0 0 0 1px rgba(234,195,74,0.28); }
+    .d-rank {
+      font-family: var(--font-mono); font-size: 0.56rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(182,196,255,0.28); margin-bottom: 7px;
+    }
+    .d-amt {
+      font-family: var(--font-display); font-size: 2.1rem;
+      color: var(--tactical-gold); line-height: 1; margin-bottom: 7px;
+    }
+    .d-name {
+      font-family: var(--font-ui); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 10px;
+    }
+    .d-desc {
+      font-family: var(--font-body); font-size: 0.78rem;
+      color: rgba(182,196,255,0.45); line-height: 1.4;
+    }
+
+    /* Inputs */
+    .input-demo {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 22px;
+      padding: 36px 40px; background: var(--surface-mid); border-radius: 3px;
+    }
+    .fgroup { display: flex; flex-direction: column; gap: 7px; }
+    .flbl {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(182,196,255,0.35);
+    }
+    .finput {
+      font-family: var(--font-ui); font-size: 0.88rem; color: var(--primary);
+      background: transparent; border: none; outline: none;
+      border-bottom: 1px solid rgba(182,196,255,0.14);
+      padding: 9px 0; width: 100%; transition: all 0.2s;
+    }
+    .finput:focus { border-bottom-color: var(--primary); }
+    .finput::placeholder { color: rgba(182,196,255,0.18); }
+
+    /* =====================================================
+       07  PHOTOGRAPHY
+       ===================================================== */
+    #photography { background: var(--surface); }
+
+    .photo-mosaic {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 230px 230px;
+      gap: 6px; border-radius: 3px; overflow: hidden;
+      margin-bottom: 44px;
+    }
+    .pmosaic-item {
+      background-size: cover; background-position: center;
+      position: relative; overflow: hidden;
+    }
+    .pmosaic-item:first-child { grid-row: 1 / 3; }
+    .pmosaic-item .plbl {
+      position: absolute; bottom: 10px; left: 10px;
+      font-family: var(--font-mono); font-size: 0.55rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      background: rgba(6,14,32,0.68); padding: 3px 7px; border-radius: 2px;
+    }
+
+    .overlay-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 44px; }
+    .ov-ex {
+      border-radius: 3px; overflow: hidden; height: 220px;
+      position: relative; background-size: cover; background-position: center;
+    }
+    .ov-layer {
+      position: absolute; inset: 0; display: flex;
+      align-items: flex-end; padding: 22px;
+    }
+    .ov-text {
+      font-family: var(--font-display); font-size: 1.7rem; color: #fff; line-height: 1;
+    }
+    .ov-text small {
+      display: block; font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.14em; color: var(--tactical-gold); margin-bottom: 5px;
+    }
+
+    .photo-rules { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .prule {
+      background: var(--surface-mid); border-radius: 3px; padding: 26px 30px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.055);
+    }
+    .prule.pdo  { border-top: 2px solid var(--cougar-green); }
+    .prule.pdont{ border-top: 2px solid var(--dragon-red); }
+    .prule h4 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 14px; }
+    .prule.pdo   h4 { color: var(--cougar-green); }
+    .prule.pdont h4 { color: var(--dragon-red); }
+    .prule ul { list-style: none; }
+    .prule ul li {
+      font-family: var(--font-body); font-size: 0.88rem;
+      color: rgba(182,196,255,0.65); padding: 5px 0;
+      border-bottom: 1px solid rgba(182,196,255,0.045);
+      display: flex; gap: 9px; align-items: flex-start;
+    }
+    .prule ul li::before { font-family: var(--font-mono); font-size: 0.65rem; flex-shrink: 0; margin-top: 2px; }
+    .prule.pdo  ul li::before { content: '→'; color: var(--cougar-green); }
+    .prule.pdont ul li::before { content: '×'; color: var(--dragon-red); }
+
+    /* =====================================================
+       08  VOICE & TONE
+       ===================================================== */
+    #voice { background: var(--surface-low); }
+
+    .voice-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 56px; }
+    .vcard {
+      background: var(--surface-highest); border-radius: 3px; padding: 28px;
+      box-shadow: 0 0 0 1px rgba(182,196,255,0.07);
+    }
+    .vcard .v-icon {
+      font-family: var(--font-display); font-size: 2.8rem;
+      line-height: 1; margin-bottom: 14px;
+    }
+    .vcard h3 {
+      font-family: var(--font-ui); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--primary); margin-bottom: 10px;
+    }
+    .vcard p {
+      font-family: var(--font-body); font-size: 0.88rem;
+      color: rgba(182,196,255,0.6); line-height: 1.55;
+    }
+
+    .copy-block-grid { display: flex; flex-direction: column; gap: 2px; }
+    .copy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .cblock { padding: 24px 30px; }
+    .cblock.wrong { background: rgba(238,38,62,0.055); }
+    .cblock.right  { background: rgba(0,100,0,0.07); }
+    .cblock .clbl {
+      font-family: var(--font-mono); font-size: 0.56rem;
+      letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px;
+    }
+    .cblock.wrong .clbl { color: var(--dragon-red); }
+    .cblock.right .clbl { color: var(--cougar-green); }
+    .cblock .ctxt { font-family: var(--font-body); font-size: 1rem; line-height: 1.6; }
+    .cblock.wrong .ctxt { color: rgba(238,38,62,0.65); }
+    .cblock.right .ctxt { color: rgba(220,230,255,0.82); }
+
+    /* =====================================================
+       09  DOS & DON'TS
+       ===================================================== */
+    #rules { background: var(--surface-lowest); }
+    .rules-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 56px; }
+    .rcol { padding: 48px; }
+    .rcol.dos   { background: rgba(0,100,0,0.055); border-top: 2px solid var(--cougar-green); }
+    .rcol.donts { background: rgba(238,38,62,0.045); border-top: 2px solid var(--dragon-red); }
+    .rcol h3 { font-family: var(--font-display); font-size: 3.2rem; margin-bottom: 36px; }
+    .rcol.dos   h3 { color: var(--cougar-green); }
+    .rcol.donts h3 { color: var(--dragon-red); }
+    .rlist { list-style: none; }
+    .rlist li { display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid rgba(182,196,255,0.045); }
+    .rlist li:last-child { border-bottom: none; }
+    .rlist li .rnum {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      color: rgba(182,196,255,0.18); flex-shrink: 0; padding-top: 2px; letter-spacing: 0.06em;
+    }
+    .rlist li strong {
+      font-family: var(--font-ui); font-size: 0.82rem; font-weight: 700;
+      letter-spacing: 0.05em; display: block; margin-bottom: 3px;
+    }
+    .rcol.dos   .rlist li strong { color: var(--primary); }
+    .rcol.donts .rlist li strong { color: rgba(238,38,62,0.75); }
+    .rlist li span {
+      font-family: var(--font-body); font-size: 0.88rem;
+      color: rgba(182,196,255,0.52); line-height: 1.5;
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+    footer {
+      background: var(--dragon-black);
+      padding: 56px 48px;
+      border-top: 1px solid rgba(182,196,255,0.055);
+    }
+    .footer-inner {
+      max-width: 1360px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 1.8rem; color: rgba(182,196,255,0.16); }
+    .footer-sub {
+      font-family: var(--font-body); font-size: 0.82rem; font-style: italic;
+      color: rgba(182,196,255,0.18); margin-top: 6px; max-width: 38ch;
+    }
+    .footer-meta {
+      font-family: var(--font-mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; color: rgba(182,196,255,0.18);
+      text-align: right; line-height: 2;
+    }
+    .footer-meta strong { color: var(--tactical-gold); }
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+    @media (max-width: 1024px) {
+      .color-grid   { grid-template-columns: repeat(3,1fr); }
+      .mission-grid { grid-template-columns: 1fr; }
+      .mission-left { position: static; }
+      .logo-grid    { grid-template-columns: 1fr 1fr; }
+      .logo-dont-grid { grid-template-columns: repeat(2,1fr); }
+      .donation-grid  { grid-template-columns: repeat(2,1fr); }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 0 24px; }
+      .wrap { padding: 64px 24px; }
+      .color-grid { grid-template-columns: repeat(2,1fr); }
+      .rules-grid { grid-template-columns: 1fr; }
+      .copy-pair  { grid-template-columns: 1fr; }
+      .rules-columns { grid-template-columns: 1fr; }
+      .card-grid  { grid-template-columns: 1fr; }
+      .voice-grid { grid-template-columns: 1fr; }
+      .photo-mosaic { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+      .pmosaic-item { height: 200px; }
+      .pmosaic-item:first-child { grid-row: auto; }
+      .overlay-demo { grid-template-columns: 1fr; }
+      .photo-rules { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════ NAVIGATION ═══════════ -->
+<nav>
+  <div class="nav-id">MAKO // BRAND MANUAL</div>
+  <ul class="nav-links">
+    <li><a href="#mission">00 — BRIEF</a></li>
+    <li><a href="#colors">01 — COLORS</a></li>
+    <li><a href="#typography">02 — TYPE</a></li>
+    <li><a href="#logo">03 — LOGO</a></li>
+    <li><a href="#components">04 — COMPONENTS</a></li>
+    <li><a href="#photography">05 — PHOTO</a></li>
+    <li><a href="#voice">06 — VOICE</a></li>
+    <li><a href="#rules">07 — RULES</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-aurora"></div>
+  <div class="hero-scanlines"></div>
+
+  <div class="hero-content">
+    <div class="hero-stamp">// BRAND IDENTITY MANUAL — AUTHORIZED USE ONLY</div>
+    <div class="hero-eyebrow">Lt. Col. Dustin "Mako" Willard — Scholarship Endowment Campaign</div>
+    <h1 class="hero-title">
+      EDGE<br>
+      <span class="gold">OF SPACE</span>
+      <span class="sub">Design System &amp; Brand Identity</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="hmeta">
+        <div class="lbl">CAMPAIGN</div>
+        <div class="val">Mako Willard Endowment</div>
+      </div>
+      <div class="hmeta">
+        <div class="lbl">INSTITUTION</div>
+        <div class="val">Kennedy High School, Cedar Rapids</div>
+      </div>
+      <div class="hmeta">
+        <div class="lbl">FOUNDATION</div>
+        <div class="val">CRCSF 501(c)(3)</div>
+      </div>
+      <div class="hmeta">
+        <div class="lbl">ENDOWMENT TARGET</div>
+        <div class="val">$25,000</div>
+      </div>
+      <div class="hmeta">
+        <div class="lbl">VERSION</div>
+        <div class="val">1.0 / 2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MISSION BRIEF ═══════════ -->
+<section id="mission" style="background: var(--surface-low);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">00</span><span class="rule"></span>
+      <span class="tag">Mission Brief</span>
+    </div>
+
+    <div class="mission-grid">
+      <div class="mission-left">
+        <img class="mission-logo" src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment Logo">
+        <div class="tele-box">
+          <div class="tele-head">// Campaign Telemetry</div>
+          <div class="trow"><span class="tk">CALLSIGN</span><span class="tv">MAKO</span></div>
+          <div class="trow"><span class="tk">PLATFORM</span><span class="tv">U-2S DRAGON LADY</span></div>
+          <div class="trow"><span class="tk">TOTAL FLT HRS</span><span class="tv">3,000+</span></div>
+          <div class="trow"><span class="tk">COMBAT HRS</span><span class="tv">1,700+</span></div>
+          <div class="trow"><span class="tk">ENDOWMENT GOAL</span><span class="tv">$25,000</span></div>
+          <div class="trow"><span class="tk">BENEFICIARY</span><span class="tv">CR KENNEDY H.S.</span></div>
+          <div class="trow"><span class="tk">FIDUCIARY</span><span class="tv">CRCSF 501(c)(3)</span></div>
+        </div>
+      </div>
+
+      <div class="mission-right">
+        <div class="sec-title">BRAND<br>BRIEF</div>
+        <h2>Creative North Star: The Stratospheric Command</h2>
+        <p>This design system is engineered to evoke the precision, heroism, and vastness of high-altitude aviation. Unlike standard military themes that lean on heavy borders and flat olive drabs, this system takes a <em>High-End Editorial</em> approach — embracing the "Edge of Space" aesthetic where deep atmospheric blues meet the harsh, high-contrast light of the sun at 70,000 feet.</p>
+        <p>The layout philosophy is defined by <strong>intentional asymmetry and tonal depth</strong>. We treat the screen not as a flat canvas, but as a flight deck instrument panel overlaid against a horizon. Expect wide breathing room, overlapping elements that suggest motion, and a typographic scale that commands authority without decoration.</p>
+        <p>This endowment campaign translates a 20-year legacy of precision and service into a permanent educational institution — honoring a Cedar Rapids Kennedy High School graduate who flew to the edge of space in service of his nation, and now returns that legacy to the community that made him.</p>
+
+        <div class="pillars">
+          <div class="pillar">
+            <div class="p-icon">▲</div>
+            <h4>Altitude</h4>
+            <p>Aspirational, premium, and high-achieving. Never downmarket or generic.</p>
+          </div>
+          <div class="pillar">
+            <div class="p-icon">◈</div>
+            <h4>Precision</h4>
+            <p>Every design decision is deliberate. Technical data is always accurate to the record.</p>
+          </div>
+          <div class="pillar">
+            <div class="p-icon">◎</div>
+            <h4>Legacy</h4>
+            <p>Permanence and perpetuity. This endowment is built to outlast all of us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ COLOR PALETTE ═══════════ -->
+<section id="colors" style="background: var(--surface-lowest);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">01</span><span class="rule"></span>
+      <span class="tag">Color System</span>
+    </div>
+    <div class="sec-title">ATMOSPHERIC<br>DEPTH</div>
+    <p class="sec-sub">The palette transitions from the "Deep Space" vacuum to the "Tactical Gold" of cockpit instrumentation — a direct translation of Lt. Col. Willard's operational environment into visual language.</p>
+
+    <!-- Primary Brand Palette -->
+    <div class="group-label">PRIMARY BRAND PALETTE — CAMPAIGN IDENTITY</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="swatch" style="background:#006400;"></div>
+        <div class="cinfo">
+          <div class="cname">Cougar Green</div>
+          <div class="chex">#006400</div>
+          <div class="cspecs">RGB: 0, 100, 0<br>CMYK: 88, 35, 100, 31</div>
+          <div class="cusage">Academic roots and Cedar Rapids community pride. Kennedy High School's primary color — never used for digital UI states.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#FFB500;"></div>
+        <div class="cinfo">
+          <div class="cname">Hawkeye Gold</div>
+          <div class="chex">#FFB500</div>
+          <div class="cspecs">RGB: 255, 181, 0<br>CMYK: 0, 31, 100, 0</div>
+          <div class="cusage">Academic excellence. References the David Clark high-altitude pressure suit and the Iowa Hawkeye "MAKO" patch on Lt. Col. Willard's flight suit.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#0B0C10; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);"></div>
+        <div class="cinfo">
+          <div class="cname">Dragon Lady Black</div>
+          <div class="chex">#0B0C10</div>
+          <div class="cspecs">RGB: 11, 12, 16<br>CMYK: 75, 68, 67, 90</div>
+          <div class="cusage">FS 37038 — the U-2's radar-absorbent matte black paint. Primary dark anchor for hero sections and high-contrast print.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#EE263E;"></div>
+        <div class="cinfo">
+          <div class="cname">Dragon Lady Red</div>
+          <div class="chex">#EE263E</div>
+          <div class="cspecs">RGB: 238, 38, 62<br>CMYK: 0, 93, 82, 0</div>
+          <div class="cusage">Matches the U-2 "U.S. AIR FORCE" fuselage insignia. For the single primary "Donate Now" CTA per page — no other use.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#9EC1CC;"></div>
+        <div class="cinfo">
+          <div class="cname">Atmospheric Blue</div>
+          <div class="chex">#9EC1CC</div>
+          <div class="cspecs">RGB: 158, 193, 204<br>CMYK: 22, 5, 0, 20</div>
+          <div class="cusage">The atmospheric hue of Earth's curvature seen from 70,000 feet. Secondary backgrounds and horizon accents.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital System Palette -->
+    <div class="group-label">DIGITAL SYSTEM PALETTE — WEB &amp; SCREEN</div>
+    <div class="color-grid">
+      <div class="color-card">
+        <div class="swatch" style="background:#b6c4ff;"></div>
+        <div class="cinfo">
+          <div class="cname">Primary</div>
+          <div class="chex">#b6c4ff</div>
+          <div class="cspecs">High-altitude sky blue</div>
+          <div class="cusage">Primary interactive elements, links, focus states, data labels, and success indicators.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#001c5d;"></div>
+        <div class="cinfo">
+          <div class="cname">Primary Container</div>
+          <div class="chex">#001c5d</div>
+          <div class="cspecs">Deep ionosphere blue</div>
+          <div class="cusage">Gradient terminus for CTA buttons. The lower bound of the primary gradient (135° to #b6c4ff).</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#0b1326; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04);"></div>
+        <div class="cinfo">
+          <div class="cname">Surface</div>
+          <div class="chex">#0b1326</div>
+          <div class="cspecs">The void — foundation</div>
+          <div class="cusage">Primary digital page background. The "deep space" canvas on which all content is rendered.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#eac34a;"></div>
+        <div class="cinfo">
+          <div class="cname">Tactical Gold</div>
+          <div class="chex">#eac34a</div>
+          <div class="cspecs">Cockpit instrumentation</div>
+          <div class="cusage">High-value CTA highlights, scholarship hero moments, fundraising milestones. Use sparingly.</div>
+        </div>
+      </div>
+      <div class="color-card">
+        <div class="swatch" style="background:#2d3449;"></div>
+        <div class="cinfo">
+          <div class="cname">Surface Highest</div>
+          <div class="chex">#2d3449</div>
+          <div class="cspecs">Elevated card surface</div>
+          <div class="cusage">Cards and elevated containers that "approach" the user. Top of the surface tonal hierarchy.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Surface Depth Stack -->
+    <div class="group-label">SURFACE HIERARCHY — TONAL DEPTH LAYERING</div>
+    <div class="surface-stack" style="margin-bottom: 56px;">
+      <div class="ss-step" style="background:#060e20;">
+        <div class="ss-lbl">LOWEST</div>
+        <div class="ss-hex">#060e20</div>
+      </div>
+      <div class="ss-step" style="background:#0b1326;">
+        <div class="ss-lbl">SURFACE</div>
+        <div class="ss-hex">#0b1326</div>
+      </div>
+      <div class="ss-step" style="background:#0f1830;">
+        <div class="ss-lbl">LOW</div>
+        <div class="ss-hex">#0f1830</div>
+      </div>
+      <div class="ss-step" style="background:#1a2540;">
+        <div class="ss-lbl">MID</div>
+        <div class="ss-hex">#1a2540</div>
+      </div>
+      <div class="ss-step" style="background:#2d3449;">
+        <div class="ss-lbl">HIGHEST</div>
+        <div class="ss-hex">#2d3449</div>
+      </div>
+    </div>
+
+    <!-- Color Rules -->
+    <div class="color-rules">
+      <h4>Color Implementation Rules</h4>
+      <div class="rules-grid">
+        <div class="rule-item r-no">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>The No-Line Rule:</strong> 1px solid borders are prohibited for sectioning. Structural boundaries must be defined through background color shifts alone.</span>
+        </div>
+        <div class="rule-item r-yes">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>Glass &amp; Gradient:</strong> Navigation and modals use Glassmorphism — surface colors at 60–80% opacity with 20px backdrop-blur to replicate the cockpit canopy effect.</span>
+        </div>
+        <div class="rule-item r-no">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>No Pure Black:</strong> Never use #000000. Always use Surface (#0b1326) or Surface Lowest (#060e20) to maintain the "Deep Space" atmospheric depth.</span>
+        </div>
+        <div class="rule-item r-yes">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>Ghost Borders Only:</strong> If a container requires definition, use the outline token at maximum 15% opacity — a "glint" on the edge, never a hard line.</span>
+        </div>
+        <div class="rule-item r-no">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>Dragon Red is Singular:</strong> One Dragon Red CTA per page — the "ejection handle." Overuse destroys its urgency as a conversion signal.</span>
+        </div>
+        <div class="rule-item r-yes">
+          <span class="rule-badge">RULE</span>
+          <span class="rule-text"><strong>Atmospheric Shadows:</strong> For floating elements, use ambient shadows tinted with primary (#b6c4ff at 8% opacity) with blur values of 32px+ — mimicking scattered high-altitude light.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ TYPOGRAPHY ═══════════ -->
+<section id="typography" style="background: var(--surface);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">02</span><span class="rule"></span>
+      <span class="tag">Typography</span>
+    </div>
+    <div class="sec-title">THE COMMAND<br>SCALE</div>
+    <p class="sec-sub">Three typefaces calibrated for altitude: one for maximum visual authority, one for editorial permanence, one for technical precision. Together they speak in the language of aerospace.</p>
+
+    <!-- Bebas / Oswald — Display Heading -->
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="t-name">Oswald / Montserrat</span>
+        <span class="t-role">— Primary Headline // All Campaign-Facing Display Copy</span>
+      </div>
+      <div class="spec-heading">FROM THE<br>EDGE OF SPACE</div>
+      <p class="type-note">Geometric, condensed sans-serifs whose tall stance and structural weight reflect aerospace engineering and military logotypes. Use for all major headlines. Letter-spacing: −0.02em at display sizes; +0.1em for subheadings.</p>
+      <div class="type-scale" style="max-width: 660px;">
+        <span class="ts-lbl">DISPLAY LG</span>
+        <span style="font-family: var(--font-heading); font-size: 3.5rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; line-height: 1.1;">Mission Launch</span>
+        <span class="ts-sz">3.5rem / −0.02em</span>
+
+        <span class="ts-lbl">HEADLINE MD</span>
+        <span style="font-family: var(--font-heading); font-size: 2rem; font-weight: 500; color: rgba(220,230,255,0.85); line-height: 1.1;">Scholarship Recipients</span>
+        <span class="ts-sz">2rem / 0em</span>
+
+        <span class="ts-lbl">TITLE SM</span>
+        <span style="font-family: var(--font-heading); font-size: 1.2rem; font-weight: 400; letter-spacing: 0.08em; color: rgba(182,196,255,0.7); line-height: 1.2; text-transform: uppercase;">Academic Excellence Award</span>
+        <span class="ts-sz">1.2rem / 0.08em</span>
+      </div>
+    </div>
+
+    <!-- Crimson Pro / Merriweather — Body -->
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="t-name">Crimson Pro / Merriweather / Garamond</span>
+        <span class="t-role">— Secondary / Body // Biographical and Long-Form Copy</span>
+      </div>
+      <div class="spec-body">
+        "For over two decades, Lieutenant Colonel Dustin R. Willard operated at the absolute pinnacle of military aviation — logging more than 3,000 flight hours above the clouds, including 1,700 in active combat, in service to the nation he swore to protect."
+      </div>
+      <p class="type-note">Serif typefaces evoke history, academic tradition, and institutional permanence — reinforcing the concept of a <em>perpetual endowment</em>. The scholarly register elevates long-form biographical and endowment copy beyond generic web prose. Use italics for quotations and supplementary notes.</p>
+      <div class="type-scale" style="max-width: 660px;">
+        <span class="ts-lbl">BODY LG</span>
+        <span style="font-family: var(--font-body); font-size: 1.2rem; color: rgba(220,230,255,0.8); line-height: 1.7;">Dedicated to the pursuit of excellence in service and scholarship.</span>
+        <span class="ts-sz">1.2rem / 1.7</span>
+
+        <span class="ts-lbl">BODY MD</span>
+        <span style="font-family: var(--font-body); font-size: 1rem; color: rgba(182,196,255,0.7); line-height: 1.65;">Scholarship criteria and eligibility for Kennedy High School seniors pursuing STEM and leadership.</span>
+        <span class="ts-sz">1rem / 1.65</span>
+
+        <span class="ts-lbl">CAPTION</span>
+        <span style="font-family: var(--font-body); font-size: 0.82rem; font-style: italic; color: rgba(182,196,255,0.45); line-height: 1.5;">Foundation-administered, 501(c)(3) compliant, CRCSF fiduciary governance.</span>
+        <span class="ts-sz">0.82rem italic</span>
+      </div>
+    </div>
+
+    <!-- B612 Mono — Technical -->
+    <div class="type-block">
+      <div class="type-meta">
+        <span class="t-name">B612 Mono</span>
+        <span class="t-role">— Technical / Data // Cockpit Instrumentation &amp; Telemetry</span>
+      </div>
+      <div class="spec-mono">
+        ALT: 70,328 FT &nbsp;&nbsp; HDG: 089° &nbsp;&nbsp; SPD: 410 KTS<br>
+        CALLSIGN: MAKO &nbsp;&nbsp; FLIGHT HRS: 3,000+ &nbsp;&nbsp; STATUS: ACTIVE<br>
+        CAMPAIGN: $15,500 / $25,000 &nbsp;&nbsp; PROGRESS: 62%<br>
+        ENDOWMENT: CRCSF §501(c)(3) &nbsp;&nbsp; YIELD: 4.5% APR
+      </div>
+      <p class="type-note">B612 was designed by Airbus specifically for maximum legibility on aircraft cockpit screens. Deploy for statistics, data readouts, donation figures, flight records, hex color codes, and technical specs. Always uppercase with 0.1em tracking for labels; 0.04em for values.</p>
+      <div class="type-scale" style="max-width: 660px;">
+        <span class="ts-lbl">LABEL MD</span>
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tactical-gold); line-height: 1.4;">APPLICATION STATUS: OPEN</span>
+        <span class="ts-sz">0.72rem / 0.1em</span>
+
+        <span class="ts-lbl">DATA SM</span>
+        <span style="font-family: var(--font-mono); font-size: 0.63rem; letter-spacing: 0.05em; color: var(--primary); line-height: 1.4;">HEX #b6c4ff / RGB 182 196 255</span>
+        <span class="ts-sz">0.63rem / 0.05em</span>
+
+        <span class="ts-lbl">META XS</span>
+        <span style="font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(182,196,255,0.35); line-height: 1.4;">VERSION 1.0 — CEDAR RAPIDS, IOWA — 2026</span>
+        <span class="ts-sz">0.56rem / 0.14em</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ LOGO USAGE ═══════════ -->
+<section id="logo" style="background: var(--surface-low);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">03</span><span class="rule"></span>
+      <span class="tag">Logo Usage</span>
+    </div>
+    <div class="sec-title">LOGO<br>SYSTEM</div>
+    <p class="sec-sub">The Mako patch-style logo draws direct lineage from the actual "MAKO" callsign patch on Lt. Col. Willard's flight suit — a hallowed tradition in military aviation, now the anchor of this campaign's visual identity.</p>
+
+    <div class="group-label">APPROVED BACKGROUNDS</div>
+    <div class="logo-grid">
+      <div class="logo-well bg-black" data-lbl="PREFERRED — Dragon Lady Black">
+        <img src="./assets/willard-mako-logo.svg" alt="Logo on Dragon Lady Black">
+      </div>
+      <div class="logo-well bg-surface" data-lbl="DIGITAL — Surface (#0b1326)">
+        <img src="./assets/willard-mako-logo.svg" alt="Logo on Surface">
+      </div>
+      <div class="logo-well bg-white" data-lbl="PRINT — White / Light Backgrounds">
+        <img src="./assets/willard-mako-logo.svg" alt="Logo on White">
+      </div>
+      <div class="logo-well bg-gold" data-lbl="ACCENT — Hawkeye Gold (Restricted)">
+        <img src="./assets/willard-mako-logo.svg" alt="Logo on Gold" style="filter: brightness(0);">
+      </div>
+    </div>
+
+    <!-- Clear Space -->
+    <div class="group-label" style="margin-top: 36px;">MINIMUM CLEAR SPACE</div>
+    <div class="clearspace-box">
+      <div class="cs-inner">
+        <div class="cs-frame">
+          <span class="cs-lbl top">1× logo cap-height</span>
+          <img src="./assets/willard-mako-logo.svg" alt="Logo clearspace">
+          <span class="cs-lbl bot">1× logo cap-height</span>
+        </div>
+      </div>
+      <p style="font-family: var(--font-body); font-size: 0.88rem; font-style: italic; color: rgba(182,196,255,0.45); margin-top: 12px;">Maintain a clear zone equal to the cap-height of the "MAKO" wordmark on all four sides of the logo. This zone must be free of all text, imagery, and competing graphic elements.</p>
+    </div>
+
+    <!-- Logo Don'ts -->
+    <div class="group-label">LOGO PROHIBITIONS</div>
+    <div class="logo-dont-grid">
+      <div class="logo-dont">
+        <img src="./assets/willard-mako-logo.svg" alt="" style="filter: saturate(0) sepia(1) hue-rotate(90deg);">
+        <div class="dont-lbl">× Do not recolor</div>
+      </div>
+      <div class="logo-dont">
+        <img src="./assets/willard-mako-logo.svg" alt="" style="transform: scaleX(1.45); transform-origin: center;">
+        <div class="dont-lbl">× Do not distort proportions</div>
+      </div>
+      <div class="logo-dont">
+        <img src="./assets/willard-mako-logo.svg" alt="" style="opacity: 0.12;">
+        <div class="dont-lbl">× Do not ghost over photography</div>
+      </div>
+      <div class="logo-dont">
+        <img src="./assets/willard-mako-logo.svg" alt="" style="filter: drop-shadow(0 0 10px #EE263E) drop-shadow(0 0 4px #EE263E);">
+        <div class="dont-lbl">× Do not apply glow effects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ COMPONENTS ═══════════ -->
+<section id="components" style="background: var(--surface-lowest);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">04</span><span class="rule"></span>
+      <span class="tag">Components</span>
+    </div>
+    <div class="sec-title">PRECISION<br>ENGINEERING</div>
+    <p class="sec-sub">Every interface component is treated as a piece of instrumentation — precise, functional, and immediately legible under high-stakes conditions.</p>
+
+    <!-- 04.1 Buttons -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.1 — BUTTON SYSTEM</div>
+      <div class="btn-row">
+        <a href="#" class="btn btn-primary">Secure the Legacy</a>
+        <a href="#" class="btn btn-secondary">Learn More</a>
+        <a href="#" class="btn btn-tactical">Donate Now</a>
+        <a href="#" class="btn btn-red">Apply Now</a>
+        <a href="#" class="btn btn-ghost">View All</a>
+      </div>
+      <div class="btn-captions">
+        <span>PRIMARY<br>Gradient fill<br>#b6c4ff → #001c5d</span>
+        <span>SECONDARY<br>Ghost outline<br>15% opacity</span>
+        <span>TACTICAL<br>Tactical Gold<br>#eac34a — CTAs</span>
+        <span>CONVERSION<br>Dragon Red<br>1× per page only</span>
+        <span>GHOST<br>No background<br>Tertiary actions</span>
+      </div>
+    </div>
+
+    <!-- 04.2 Telemetry Chips -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.2 — TELEMETRY STATUS CHIPS</div>
+      <div style="padding: 28px 36px; background: var(--surface-mid); border-radius: 3px; margin-bottom: 12px;">
+        <div class="chip-row">
+          <div class="chip c-active"><span class="dot"></span> Applications Open</div>
+          <div class="chip c-warn"><span class="dot"></span> 12 Days Remaining</div>
+          <div class="chip c-alert"><span class="dot"></span> Deadline Apr 30</div>
+          <div class="chip c-ok"><span class="dot"></span> Endowment Active</div>
+          <div class="chip c-mute"><span class="dot"></span> Under Review</div>
+        </div>
+      </div>
+      <p style="font-family: var(--font-body); font-size: 0.84rem; font-style: italic; color: rgba(182,196,255,0.38);">Reserved for system-level status: application windows, campaign progress, and time-sensitive alerts. B612 Mono, all-caps. Active states use a pulsing dot in the relevant accent color.</p>
+    </div>
+
+    <!-- 04.3 Cards -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.3 — SCHOLARSHIP CONTENT CARDS</div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-img" style="background-image: url('./assets/u2-high-altitude-earth-curvature-1.jpeg');"></div>
+          <div class="card-body">
+            <span class="card-tag">// STEM Scholarship</span>
+            <div class="card-title">Engineering Excellence Award</div>
+            <p>For graduating Kennedy seniors pursuing degrees in STEM, aviation, or enrolled in a university ROTC program.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image: url('./assets/willard-mako-selfie-u2-hangar.jpeg');"></div>
+          <div class="card-body">
+            <span class="card-tag">// Leadership</span>
+            <div class="card-title">Mission Command Award</div>
+            <p>Recognizing demonstrated leadership in school activities, athletics, or community service — the Kennedy Cougars spirit.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img" style="background-image: url('./assets/aircraft-night-takeoff-city-lights.jpeg');"></div>
+          <div class="card-body">
+            <span class="card-tag">// Aviation</span>
+            <div class="card-title">The Fini Flight Grant</div>
+            <p>Honoring the final flight that closes a chapter — and the first flight that opens a new one for Iowa's next generation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04.4 Fundraising Progress Bar -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.4 — ENDOWMENT PROGRESS TRACKER</div>
+      <div class="fundraiser">
+        <div class="f-header">
+          <span class="f-lbl">// Endowment Capitalization</span>
+          <span class="f-amt">$15,500</span>
+        </div>
+        <div class="f-sub">
+          <span class="note">62% of $25,000 endowment threshold reached</span>
+          <span class="goal">Goal: $25,000</span>
+        </div>
+        <div class="track"><div class="fill"></div></div>
+        <div class="tiers-row">
+          <div class="ftier hit">$2K<br>INITIATION</div>
+          <div class="ftier hit">$10K<br>PHASE I</div>
+          <div class="ftier next">$25K ▲<br>ENDOWMENT</div>
+          <div class="ftier">$50K<br>EXPANSION</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04.5 Donation Tiers -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.5 — DONOR TIER SYSTEM</div>
+      <div class="donation-grid">
+        <div class="d-tier">
+          <div class="d-rank">// TIER 1</div>
+          <div class="d-amt">$50</div>
+          <div class="d-name">Groundcrew</div>
+          <div class="d-desc">Named on the campaign website's donor honor roll.</div>
+        </div>
+        <div class="d-tier feat">
+          <div class="d-rank">// TIER 2</div>
+          <div class="d-amt">$500</div>
+          <div class="d-name">Mission Ready</div>
+          <div class="d-desc">Named on endowment documentation and a personalized certificate of appreciation.</div>
+        </div>
+        <div class="d-tier">
+          <div class="d-rank">// TIER 3</div>
+          <div class="d-amt">$2,500</div>
+          <div class="d-name">Dragon Lady</div>
+          <div class="d-desc">Recognition at Kennedy Senior Awards Night plus a commemorative challenge coin.</div>
+        </div>
+        <div class="d-tier">
+          <div class="d-rank">// TIER 4</div>
+          <div class="d-amt">$10K+</div>
+          <div class="d-name">Stratospheric</div>
+          <div class="d-desc">Named co-benefactor. Permanent recognition on the CRCSF foundation record.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04.6 Inputs -->
+    <div class="comp-section">
+      <div class="comp-label">// 04.6 — FORM FIELDS</div>
+      <div class="input-demo">
+        <div class="fgroup">
+          <label class="flbl">Full Name</label>
+          <input type="text" class="finput" placeholder="John A. Kennedy">
+        </div>
+        <div class="fgroup">
+          <label class="flbl">Email Address</label>
+          <input type="email" class="finput" placeholder="donor@makowillard.org">
+        </div>
+        <div class="fgroup">
+          <label class="flbl">Donation Amount (USD)</label>
+          <input type="text" class="finput" value="$500.00">
+        </div>
+        <div class="fgroup">
+          <label class="flbl">Connection to Lt. Col. Willard</label>
+          <input type="text" class="finput" placeholder="Squadron member, Kennedy alum...">
+        </div>
+      </div>
+      <p style="font-family: var(--font-body); font-size: 0.84rem; font-style: italic; color: rgba(182,196,255,0.38); margin-top: 12px;">Active focus triggers a subtle Surface Bright glow beneath the field, simulating an illuminated instrument. Underline-only style enforces the No-Line Rule across all form contexts.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ PHOTOGRAPHY ═══════════ -->
+<section id="photography" style="background: var(--surface);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">05</span><span class="rule"></span>
+      <span class="tag">Photography</span>
+    </div>
+    <div class="sec-title">IMAGE<br>DOCTRINE</div>
+    <p class="sec-sub">Photography is the emotional fuel of this campaign. Every image should evoke altitude, silence, and the profound loneliness of operating at the edge of human endurance.</p>
+
+    <div class="group-label">APPROVED IMAGE LIBRARY</div>
+    <div class="photo-mosaic">
+      <div class="pmosaic-item" style="background-image: url('./assets/u2-pilot-cockpit-aurora-night-portrait.jpeg');">
+        <div class="plbl">HERO — Pilot / Aurora Portrait</div>
+      </div>
+      <div class="pmosaic-item" style="background-image: url('./assets/u2-high-altitude-earth-curvature-1.jpeg');">
+        <div class="plbl">HERO — Earth Curvature</div>
+      </div>
+      <div class="pmosaic-item" style="background-image: url('./assets/u2-aurora-borealis-high-altitude.jpeg');">
+        <div class="plbl">ACCENT — Aurora Borealis</div>
+      </div>
+      <div class="pmosaic-item" style="background-image: url('./assets/u2-dragon-lady-runway-with-chase-car.jpeg');">
+        <div class="plbl">CONTEXT — Dragon Lady Runway</div>
+      </div>
+      <div class="pmosaic-item" style="background-image: url('./assets/willard-mako-military-profile-pic-uniform.jpg');">
+        <div class="plbl">PORTRAIT — Official Uniform</div>
+      </div>
+    </div>
+
+    <div class="group-label">APPROVED OVERLAY TREATMENTS</div>
+    <div class="overlay-demo">
+      <div class="ov-ex" style="background-image: url('./assets/u2-edge-of-space-coastal-sunburst-1.jpeg');">
+        <div class="ov-layer" style="background: linear-gradient(to top, rgba(6,14,32,0.94) 0%, rgba(6,14,32,0.35) 60%, transparent 100%);">
+          <div class="ov-text">
+            <small>// RECOMMENDED — Bottom-up gradient</small>
+            FROM THE EDGE<br>OF SPACE
+          </div>
+        </div>
+      </div>
+      <div class="ov-ex" style="background-image: url('./assets/u2-pilot-cockpit-aurora-borealis-panorama.jpeg');">
+        <div class="ov-layer" style="background: linear-gradient(135deg, rgba(0,28,93,0.68) 0%, rgba(6,14,32,0.55) 100%);">
+          <div class="ov-text">
+            <small>// ALTERNATIVE — Diagonal gradient</small>
+            70,000 FEET<br>ABOVE
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-rules">
+      <div class="prule pdo">
+        <h4>DO</h4>
+        <ul>
+          <li>Use high-altitude imagery showing the curvature of the Earth and the edge of the atmosphere</li>
+          <li>Show aurora borealis, stratospheric sunsets, and atmospheric phenomena as witnessed from the U-2 cockpit</li>
+          <li>Apply deep navy-to-transparent gradient overlays when placing copy over photographs</li>
+          <li>Prefer wide, landscape-oriented images that emphasize the horizon and vast open space</li>
+          <li>Use Lt. Col. Willard's official military portrait for formal contexts and editorial headers</li>
+          <li>Show authentic flight line and aircraft imagery — U-2, T-38, B-1B — in their operational context</li>
+        </ul>
+      </div>
+      <div class="prule pdont">
+        <h4>DON'T</h4>
+        <ul>
+          <li>Use stock photography, generic military clipart, or AI-generated aerospace imagery</li>
+          <li>Apply heavy filters, oversaturation, or Instagram-style color grades to mission photography</li>
+          <li>Place campaign copy directly on unmodified photographs without an overlay treatment</li>
+          <li>Use images below 2000px on the long edge — resolution is a non-negotiable quality signal</li>
+          <li>Crop the aircraft out of aviation photography — the airframe is the operational context</li>
+          <li>Mix casual personal photos with formal campaign copy — the register must match throughout</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ VOICE & TONE ═══════════ -->
+<section id="voice" style="background: var(--surface-low);">
+  <div class="wrap">
+    <div class="sec-marker">
+      <span class="num">06</span><span class="rule"></span>
+      <span class="tag">Voice &amp; Tone</span>
+    </div>
+    <div class="sec-title">LANGUAGE<br>OF ALTITUDE</div>
+    <p class="sec-sub">Campaign language must be evocative, deeply respectful of military service, and action-oriented. We speak with command, not bureaucracy. We earn every word.</p>
+
+    <div class="voice-grid">
+      <div class="vcard">
+        <div class="v-icon" style="color: var(--tactical-gold);">▲</div>
+        <h3>Authoritative</h3>
+        <p>Write with command. Passive voice is grounded. This campaign speaks from decades of real achievement — active verbs, present tense where possible, declarative sentences that land like a landing gear on a bicycle-gear aircraft.</p>
+      </div>
+      <div class="vcard">
+        <div class="v-icon" style="color: var(--primary);">◎</div>
+        <h3>Evocative</h3>
+        <p>The best campaign copy makes you <em>feel</em> 70,000 feet of altitude. Ground technical data in human experience. Translate flight hours into sacrifice. Translate the endowment into a Kennedy student's future.</p>
+      </div>
+      <div class="vcard">
+        <div class="v-icon" style="color: var(--atmospheric-blue);">◈</div>
+        <h3>Precise</h3>
+        <p>We do not exaggerate. We do not need to. The career record of Lt. Col. Willard speaks for itself. Every statistic cited must be verifiable. Accuracy is the brand's core promise.</p>
+      </div>
+      <div class="vcard">
+        <div class="v-icon" style="color: var(--cougar-green);">⊕</div>
+        <h3>Rooted</h3>
+        <p>Cedar Rapids. Kennedy High School. The Iowa Hawkeyes. This campaign began on these grounds and returns to them. Never let national scale erase the local pride that is the entire point.</p>
+      </div>
+      <div class="vcard">
+        <div class="v-icon" style="color: var(--hawkeye-gold);">◆</div>
+        <h3>Action-Oriented</h3>
+        <p>Every section should drive to a decision. "Donate Today." "Apply Now." "Secure the Legacy." We are on a launch clock — urgency is not manufactured, it is real. The Fini Flight is April 9th.</p>
+      </div>
+      <div class="vcard">
+        <div class="v-icon" style="color: rgba(182,196,255,0.5);">○</div>
+        <h3>Respectful</h3>
+        <p>We honor genuine military sacrifice. We do not sensationalize, mythologize, or exploit service. The language honors the man by being worthy of the mission. Dignity is non-negotiable.</p>
+      </div>
+    </div>
+
+    <div class="group-label">COPY EXAMPLES — WRONG VS. RIGHT</div>
+    <div class="copy-block-grid">
+      <div class="copy-pair">
+        <div class="cblock wrong">
+          <div class="clbl">× Wrong — Generic &amp; Passive</div>
+          <div class="ctxt">"We are collecting donations for a scholarship fund to help students at Kennedy High School in Cedar Rapids. Please consider giving whatever you can to support this worthy cause."</div>
+        </div>
+        <div class="cblock right">
+          <div class="clbl">✓ Right — Mission Voice</div>
+          <div class="ctxt">"From the edge of space to the heart of Iowa — join us in making Lt. Col. Willard's legacy permanent. Every dollar endows a future engineer, aviator, or leader in the halls where he first learned to aim high."</div>
+        </div>
+      </div>
+      <div class="copy-pair">
+        <div class="cblock wrong">
+          <div class="clbl">× Wrong — Vague &amp; Unearned</div>
+          <div class="ctxt">"Dustin Willard had a really impressive career in the military. He flew some really important planes and did a lot of important missions over his 20 years of service."</div>
+        </div>
+        <div class="cblock right">
+          <div class="clbl">✓ Right — Precise &amp; Earned</div>
+          <div class="ctxt">"Logging 3,000 flight hours — over half in active combat — Lt. Col. Willard piloted the B-1B Lancer, commanded MC-12W reconnaissance, and mastered the U-2S Dragon Lady at 70,000 feet. The record speaks."</div>
+        </div>
+      </div>
+      <div class="copy-pair">
+        <div class="cblock wrong">
+          <div class="clbl">× Wrong — Bureaucratic</div>
+          <div class="ctxt">"Donations are tax-deductible pursuant to 501(c)(3) status. The Cedar Rapids Community Schools Foundation will administer the fund per UPMIFA guidelines applicable to Iowa fiduciaries."</div>
+        </div>
+        <div class="cblock right">
+          <div class="clbl">✓ Right — Transparent but Human</div>
+          <div class="ctxt">"Your gift is fully tax-deductible, administered in perpetuity by the Cedar Rapids Community Schools Foundation — the same trusted institution that has funded Kennedy scholarships for decades."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ RULES OF ENGAGEMENT ═══════════ -->
+<section id="rules" style="background: var(--surface-lowest);">
+  <div class="wrap" style="padding-bottom: 0;">
+    <div class="sec-marker">
+      <span class="num">07</span><span class="rule"></span>
+      <span class="tag">Rules of Engagement</span>
+    </div>
+    <div class="sec-title">MISSION<br>PARAMETERS</div>
+    <p class="sec-sub">The design system lives or dies by its rules. These are not suggestions — they are the parameters of the mission.</p>
+  </div>
+
+  <div class="rules-columns">
+    <div class="rcol dos">
+      <h3>DO</h3>
+      <ul class="rlist">
+        <li>
+          <span class="rnum">01</span>
+          <div>
+            <strong>Use asymmetrical layouts</strong>
+            <span>Place a large headline on the left and leave the right 40% open. The empty space is the altitude — it is not a mistake, it is the design.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">02</span>
+          <div>
+            <strong>Use photography as atmospheric texture</strong>
+            <span>Stratospheric images used as background elements, obscured by deep blue overlays at 15–30% opacity. The image creates mood; it is not the subject.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">03</span>
+          <div>
+            <strong>Use 0.25rem (sm) border radius throughout</strong>
+            <span>It feels more instrumental and tactical than overly rounded shapes. Soft corners read consumer; sharp corners read precision engineering.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">04</span>
+          <div>
+            <strong>Use B612 Mono for all quantitative data</strong>
+            <span>Flight hours, donation amounts, funding percentages, dates, hex codes — if it's a number or a technical identifier, it belongs in the cockpit font.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">05</span>
+          <div>
+            <strong>Allow 80px of vertical whitespace between sections</strong>
+            <span>No dividers. Breathing room between content blocks is the structural grammar of this system. White space communicates altitude.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">06</span>
+          <div>
+            <strong>Match photography register to copy register</strong>
+            <span>Formal campaign sections use the official uniform portrait. Context sections use flight line imagery. The visual and verbal tone must travel together.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="rcol donts">
+      <h3>DON'T</h3>
+      <ul class="rlist">
+        <li>
+          <span class="rnum">01</span>
+          <div>
+            <strong>Use pure black (#000000)</strong>
+            <span>Always use Surface (#0b1326) or Surface Lowest (#060e20). Pure black breaks atmospheric immersion — we exist in deep space, not a void.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">02</span>
+          <div>
+            <strong>Use 1px solid borders for sectioning</strong>
+            <span>The No-Line Rule is fundamental. Section boundaries must emerge from background color shifts. If you're drawing a divider, redesign the layout.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">03</span>
+          <div>
+            <strong>Use standard "Success Green" for UI states</strong>
+            <span>Use Primary (#b6c4ff) for success states and Tactical Gold for warnings. Cougar Green is reserved for brand identity — not component state management.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">04</span>
+          <div>
+            <strong>Use 100% opaque borders anywhere</strong>
+            <span>If a ghost border is truly required, maximum 15% opacity on the outline token. A "glint" — never a hard line. Hard lines shatter atmospheric depth.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">05</span>
+          <div>
+            <strong>Deploy Dragon Red (#EE263E) more than once per page</strong>
+            <span>One red button per page — the ejection handle. Pull it too often and it loses all urgency. Red is reserved for the single primary conversion goal.</span>
+          </div>
+        </li>
+        <li>
+          <span class="rnum">06</span>
+          <div>
+            <strong>Use generic military stock photography</strong>
+            <span>This campaign's photography is real, personal, and historically significant. No iStock fighter jets. No Shutterstock eagles. No AI-generated cockpits. Authentic only.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">MAKO</div>
+      <div class="footer-sub">"From the edge of space to the heart of Cedar Rapids."</div>
+    </div>
+    <div class="footer-meta">
+      <strong>BRAND IDENTITY MANUAL v1.0</strong><br>
+      Lt. Col. Dustin "Mako" Willard Scholarship Endowment<br>
+      Cedar Rapids Kennedy High School · CRCSF 501(c)(3)<br>
+      Design System: Edge of Space · 2026<br><br>
+      CLASSIFICATION: AUTHORIZED USE ONLY
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lt. Col. Dustin "Mako" Willard Scholarship Endowment</title>
+<meta name="description" content="Honoring 20 years of elite military aviation by empowering the next generation of leaders. Join us in establishing the permanent Lt. Col. Dustin 'Mako' Willard Scholarship Endowment at Cedar Rapids Kennedy High School.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=B612+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root {
+  --surface-lowest: #060e20;
+  --surface: #0b1326;
+  --surface-low: #0f1830;
+  --surface-mid: #1a2540;
+  --surface-highest: #2d3449;
+  --primary: #b6c4ff;
+  --primary-container: #001c5d;
+  --tactical-gold: #eac34a;
+  --cougar-green: #006400;
+  --hawkeye-gold: #FFB500;
+  --dragon-black: #0B0C10;
+  --dragon-red: #EE263E;
+  --atmospheric-blue: #9EC1CC;
+  --text-primary: #e8eaf6;
+  --text-secondary: #9aa5c4;
+  --text-muted: #5a6580;
+  --ghost-border: rgba(182, 196, 255, 0.12);
+  --ghost-border-gold: rgba(234, 195, 74, 0.15);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Crimson Pro', serif;
+  --font-mono: 'B612 Mono', monospace;
+  --font-ui: 'Rajdhani', sans-serif;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  background-color: var(--surface-lowest);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--dragon-red), var(--tactical-gold));
+  z-index: 1000;
+  transition: width 0.1s linear;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+#main-nav {
+  position: fixed;
+  top: 2px;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  height: 64px;
+  background: rgba(6, 14, 32, 0.82);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border-bottom: 1px solid var(--ghost-border);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.nav-brand img {
+  height: 40px;
+  width: auto;
+  filter: brightness(1.1);
+}
+.nav-brand-text {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--primary);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color 0.2s;
+  position: relative;
+  padding-bottom: 2px;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--tactical-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text-primary);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-cta {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--dragon-red);
+  padding: 0.5rem 1.25rem;
+  clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+.nav-cta:hover {
+  background: #ff3d53;
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   SECTION REVEAL ANIMATION
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* ============================================================
+   SECTION MARKER
+   ============================================================ */
+.section-marker {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--tactical-gold);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.section-marker::before {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--tactical-gold);
+}
+
+/* ============================================================
+   HERO — SECTION 1
+   ============================================================ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-bg-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.55;
+}
+/* Fallback image shown while video loads */
+.hero-bg-image {
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/u2-pilot-cockpit-aurora-night-portrait.jpeg');
+  background-size: cover;
+  background-position: center 20%;
+  opacity: 0.28;
+}
+.hero-aurora {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 60% at 20% 30%, rgba(0, 200, 140, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 80% 20%, rgba(0, 120, 200, 0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 40% at 50% 10%, rgba(50, 0, 180, 0.12) 0%, transparent 50%);
+  animation: aurora-shift 12s ease-in-out infinite alternate;
+}
+@keyframes aurora-shift {
+  0%   { opacity: 0.45; transform: scale(1) rotate(0deg); }
+  50%  { opacity: 0.65; transform: scale(1.04) rotate(0.5deg); }
+  100% { opacity: 0.5;  transform: scale(1.01) rotate(-0.3deg); }
+}
+.hero-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.08) 3px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+}
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 32, 0.55) 0%,
+    rgba(6, 14, 32, 0.2) 40%,
+    rgba(6, 14, 32, 0.7) 80%,
+    var(--surface-lowest) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 2.5rem 0;
+  width: 100%;
+}
+
+.hero-top-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+.classification-stamp {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  border: 1px solid rgba(90, 101, 128, 0.3);
+  padding: 0.25rem 0.75rem;
+  text-transform: uppercase;
+}
+.telemetry-chip {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--dragon-red);
+  background: rgba(238, 38, 62, 0.1);
+  border: 1px solid rgba(238, 38, 62, 0.3);
+  padding: 0.25rem 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+}
+.telemetry-chip::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--dragon-red);
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  color: var(--atmospheric-blue);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.15em;
+}
+.hero-h1 .line-2 {
+  color: var(--tactical-gold);
+  display: block;
+}
+
+.hero-sub {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: var(--text-secondary);
+  max-width: 640px;
+  line-height: 1.65;
+  margin-top: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-ctas {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+}
+.btn-primary {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--dragon-red);
+  padding: 0.85rem 2rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background: #ff3d53;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(238, 38, 62, 0.4);
+}
+.btn-ghost {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--primary);
+  border: 1px solid rgba(182, 196, 255, 0.25);
+  padding: 0.85rem 2rem;
+  clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  display: inline-block;
+}
+.btn-ghost:hover {
+  border-color: rgba(182, 196, 255, 0.55);
+  background: rgba(182, 196, 255, 0.07);
+  color: #fff;
+}
+
+/* AUDIO PLAYER */
+.hero-audio-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 0;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+.audio-player-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.audio-player-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  opacity: 0.75;
+}
+.audio-player-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: #fff;
+  text-shadow: 0 0 60px rgba(182, 196, 255, 0.25);
+}
+.audio-player-controls {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  width: 100%;
+}
+
+/* Play button with pulse ring */
+.audio-play-btn-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+.audio-pulse-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(234, 195, 74, 0);
+  transition: border-color 0.3s;
+  pointer-events: none;
+}
+.audio-play-btn-wrap.playing .audio-pulse-ring {
+  border-color: rgba(234, 195, 74, 0.35);
+  animation: pulse-ring 2s ease-out infinite;
+}
+@keyframes pulse-ring {
+  0%   { transform: scale(1);    opacity: 1; }
+  100% { transform: scale(1.55); opacity: 0; }
+}
+
+.audio-play-btn {
+  position: relative;
+  z-index: 1;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid rgba(182, 196, 255, 0.3);
+  background: rgba(182, 196, 255, 0.07);
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  padding: 0;
+}
+.audio-play-btn:hover {
+  background: rgba(182, 196, 255, 0.14);
+  border-color: rgba(182, 196, 255, 0.6);
+  transform: scale(1.06);
+  box-shadow: 0 0 32px rgba(182, 196, 255, 0.15);
+}
+.audio-play-btn.playing {
+  background: rgba(234, 195, 74, 0.1);
+  border-color: var(--tactical-gold);
+  color: var(--tactical-gold);
+  box-shadow: 0 0 36px rgba(234, 195, 74, 0.25);
+}
+.audio-play-btn svg { display: block; }
+
+/* Waveform bars (decorative, animates when playing) */
+.audio-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+  flex-shrink: 0;
+}
+.audio-bars span {
+  display: block;
+  width: 3px;
+  border-radius: 2px;
+  background: rgba(182, 196, 255, 0.25);
+  height: 6px;
+  transition: background 0.3s;
+}
+.audio-bars.active span { background: var(--tactical-gold); }
+.audio-bars.active span:nth-child(1) { animation: bar 1.1s ease-in-out 0.0s infinite alternate; }
+.audio-bars.active span:nth-child(2) { animation: bar 0.9s ease-in-out 0.2s infinite alternate; }
+.audio-bars.active span:nth-child(3) { animation: bar 1.3s ease-in-out 0.1s infinite alternate; }
+.audio-bars.active span:nth-child(4) { animation: bar 0.8s ease-in-out 0.3s infinite alternate; }
+.audio-bars.active span:nth-child(5) { animation: bar 1.2s ease-in-out 0.15s infinite alternate; }
+@keyframes bar {
+  from { height: 4px;  }
+  to   { height: 24px; }
+}
+
+.audio-progress-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.audio-track {
+  width: 100%;
+  height: 3px;
+  background: rgba(182, 196, 255, 0.1);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+}
+.audio-track-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--primary-container), var(--tactical-gold));
+  border-radius: 2px;
+  pointer-events: none;
+  transition: width 0.1s linear;
+  position: relative;
+}
+.audio-track-fill::after {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tactical-gold);
+  box-shadow: 0 0 8px rgba(234, 195, 74, 0.6);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.audio-track:hover .audio-track-fill::after { opacity: 1; }
+.audio-time {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(182, 196, 255, 0.38);
+  text-align: right;
+}
+
+/* COUNTDOWN */
+.hero-countdown-wrap {
+  position: relative;
+  z-index: 1;
+  background: rgba(11, 19, 38, 0.7);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--ghost-border);
+  padding: 1.5rem 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.countdown-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  flex-shrink: 0;
+  max-width: 160px;
+}
+.countdown-boxes {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 72px;
+}
+.countdown-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+.countdown-unit {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+.countdown-sep {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--tactical-gold);
+  margin-top: -8px;
+  opacity: 0.5;
+  animation: sep-blink 1s step-end infinite;
+}
+@keyframes sep-blink { 0%, 100% { opacity: 0.5; } 50% { opacity: 0.1; } }
+
+/* ============================================================
+   SECTION 2 — THE MISSION
+   ============================================================ */
+#mission {
+  padding: 6rem 2.5rem;
+  background: var(--surface-low);
+  position: relative;
+  overflow: hidden;
+}
+#mission::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 28, 93, 0.35) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.mission-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.mission-left .section-marker { margin-bottom: 1rem; }
+.mission-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 1.75rem;
+}
+.mission-body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Progress */
+.progress-card {
+  background: var(--surface-mid);
+  border-radius: 2px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--ghost-border);
+}
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+.progress-raised {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--tactical-gold);
+  letter-spacing: 0.02em;
+}
+.progress-goal {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+}
+.progress-bar-wrap {
+  height: 6px;
+  background: var(--surface-highest);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--tactical-gold), var(--hawkeye-gold));
+  border-radius: 3px;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.progress-pct {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--tactical-gold);
+  letter-spacing: 0.1em;
+}
+
+.phases-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.phase-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.1rem;
+  background: var(--surface-mid);
+  border-radius: 2px;
+  border-left: 3px solid var(--ghost-border);
+  transition: border-color 0.2s;
+}
+.phase-item.active { border-left-color: var(--tactical-gold); }
+.phase-num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  min-width: 40px;
+}
+.phase-label {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  flex: 1;
+}
+.phase-amount {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--tactical-gold);
+}
+
+.trust-badge {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 100, 0, 0.12);
+  border: 1px solid rgba(0, 100, 0, 0.25);
+  border-radius: 2px;
+}
+.trust-badge-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(0, 100, 0, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1rem;
+}
+.trust-badge-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--cougar-green);
+  text-transform: uppercase;
+  line-height: 1.5;
+  filter: brightness(1.8);
+}
+
+/* ============================================================
+   SECTION 3 — THE MAN
+   ============================================================ */
+#the-man {
+  padding: 6rem 2.5rem;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+#the-man::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ghost-border), transparent);
+}
+
+.the-man-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.man-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 1.75rem;
+}
+.man-bio {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--ghost-border);
+  margin-bottom: 2.5rem;
+  border: 1px solid var(--ghost-border);
+}
+.stat-cell {
+  background: var(--surface-low);
+  padding: 1.25rem 1rem;
+  text-align: center;
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--tactical-gold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Aircraft chips */
+.aircraft-list {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+.aircraft-chip {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--atmospheric-blue);
+  background: rgba(158, 193, 204, 0.08);
+  border: 1px solid rgba(158, 193, 204, 0.18);
+  padding: 0.3rem 0.7rem;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+}
+.aircraft-chip:hover {
+  background: rgba(158, 193, 204, 0.15);
+  border-color: rgba(158, 193, 204, 0.35);
+}
+.aircraft-chip.highlight {
+  color: var(--tactical-gold);
+  background: rgba(234, 195, 74, 0.08);
+  border-color: rgba(234, 195, 74, 0.2);
+}
+
+/* Decorations */
+.decorations-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.decorations-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.decorations-list li {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.decorations-list li::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--tactical-gold);
+  flex-shrink: 0;
+}
+
+/* Photo column */
+.man-photo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.portrait-frame {
+  position: relative;
+}
+.portrait-frame::before,
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: var(--tactical-gold);
+  border-style: solid;
+  opacity: 0.6;
+  z-index: 2;
+}
+.portrait-frame::before {
+  top: -6px; left: -6px;
+  border-width: 2px 0 0 2px;
+}
+.portrait-frame::after {
+  bottom: -6px; right: -6px;
+  border-width: 0 2px 2px 0;
+}
+.portrait-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  filter: contrast(1.05);
+}
+.portrait-hud {
+  position: absolute;
+  top: 10px; right: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(234, 195, 74, 0.6);
+  line-height: 1.6;
+  text-align: right;
+}
+.portrait-hud span { display: block; }
+
+.casual-photo-wrap {
+  position: relative;
+}
+.casual-photo {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(0.1);
+}
+.photo-quote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(6, 14, 32, 0.95), transparent);
+  padding: 2rem 1.25rem 1rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--atmospheric-blue);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   SECTION 4 — FINI FLIGHT
+   ============================================================ */
+#fini-flight {
+  position: relative;
+  padding: 7rem 2.5rem;
+  overflow: hidden;
+  background: var(--surface-lowest);
+}
+.fini-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.fini-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.35;
+}
+.fini-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--surface-lowest) 0%,
+    rgba(6, 14, 32, 0.4) 40%,
+    rgba(6, 14, 32, 0.4) 60%,
+    var(--surface-lowest) 100%
+  );
+}
+.fini-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+.fini-section-marker {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.fini-countdown-big {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.fini-box {
+  text-align: center;
+}
+.fini-num {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+.fini-unit {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+.fini-sep {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--dragon-red);
+  margin-top: -12px;
+  animation: sep-blink 1s step-end infinite;
+}
+.fini-date-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--atmospheric-blue);
+  margin-bottom: 4rem;
+  text-transform: uppercase;
+}
+
+.fini-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  text-align: left;
+}
+.fini-col-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--tactical-gold);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.fini-col-title::before {
+  content: '';
+  width: 1.5rem;
+  height: 1px;
+  background: var(--tactical-gold);
+  display: block;
+}
+.fini-col-body {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.fini-accent-img {
+  position: absolute;
+  bottom: 4rem;
+  right: 2.5rem;
+  width: 180px;
+  opacity: 0.4;
+  filter: grayscale(0.4);
+}
+
+/* ============================================================
+   SECTION 5 — THE SCHOLARSHIP
+   ============================================================ */
+#scholarship {
+  padding: 6rem 2.5rem;
+  background: var(--surface-low);
+  position: relative;
+}
+
+.scholarship-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.scholarship-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.scholarship-accent-line {
+  width: 80px;
+  height: 3px;
+  background: var(--cougar-green);
+  margin-bottom: 1.5rem;
+}
+.scholarship-subhead {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+  font-style: italic;
+}
+
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.criteria-card {
+  background: var(--surface-highest);
+  padding: 2rem 1.75rem;
+  border-radius: 2px;
+  border: 1px solid var(--ghost-border);
+  border-top: 2px solid var(--cougar-green);
+  transition: transform 0.3s, border-top-color 0.3s;
+}
+.criteria-card:hover {
+  transform: translateY(-4px);
+  border-top-color: var(--hawkeye-gold);
+}
+.criteria-num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+.criteria-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+.criteria-body {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.endowment-mechanics {
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+.mechanic-item {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+.mechanic-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--atmospheric-blue);
+  text-transform: uppercase;
+  padding: 0 1.25rem;
+}
+.mechanic-sep {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--tactical-gold);
+  opacity: 0.4;
+}
+
+.crcsf-note {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SECTION 6 — TIERS + FORM
+   ============================================================ */
+#donate {
+  padding: 6rem 2.5rem;
+  background: var(--surface);
+  position: relative;
+  overflow: hidden;
+}
+#donate::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ghost-border), transparent);
+}
+
+.donate-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.donate-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.donate-subtitle {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 3rem;
+}
+
+/* Tier cards */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.tier-card {
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  padding: 1.75rem 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.25s, transform 0.25s, background 0.25s;
+  position: relative;
+  border-radius: 2px;
+}
+.tier-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(182, 196, 255, 0.25);
+  background: var(--surface-highest);
+}
+.tier-card.selected {
+  border-color: var(--tactical-gold);
+  background: rgba(234, 195, 74, 0.06);
+}
+.tier-card.featured {
+  border-top: 2px solid var(--dragon-red);
+}
+.tier-featured-badge {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: var(--dragon-red);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.tier-amount {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--tactical-gold);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+.tier-name {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+.tier-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.tier-selected-indicator {
+  position: absolute;
+  top: 10px; right: 10px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--tactical-gold);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--surface-lowest);
+  font-weight: 700;
+}
+.tier-card.selected .tier-selected-indicator {
+  display: flex;
+}
+
+.custom-amount-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+.custom-amount-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ---- FORM ---- */
+.form-panel {
+  background: var(--surface-low);
+  border: 1px solid var(--ghost-border);
+  padding: 2.5rem;
+  border-radius: 2px;
+}
+.form-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.form-title {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--primary);
+  text-transform: uppercase;
+}
+.form-telemetry {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.form-chip {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
+}
+
+.freq-toggle {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1.75rem;
+  width: fit-content;
+  border: 1px solid var(--ghost-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.freq-btn {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  padding: 0.6rem 1.5rem;
+  transition: color 0.2s, background 0.2s;
+  border: none;
+}
+.freq-btn.active {
+  color: var(--surface-lowest);
+  background: var(--primary);
+}
+
+.amount-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.amount-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  padding: 0.5rem 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 1px;
+}
+.amount-pill:hover {
+  border-color: rgba(182, 196, 255, 0.3);
+  color: var(--text-primary);
+}
+.amount-pill.active {
+  border-color: var(--tactical-gold);
+  color: var(--tactical-gold);
+  background: rgba(234, 195, 74, 0.08);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: rgba(182, 196, 255, 0.4);
+  background: var(--surface-highest);
+}
+.form-input.mono-input {
+  font-family: var(--font-mono);
+}
+.form-input::placeholder { color: var(--text-muted); }
+.form-textarea::placeholder { color: var(--text-muted); }
+.form-textarea { resize: vertical; min-height: 90px; }
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6580' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+.form-select option {
+  background: var(--surface-mid);
+  color: var(--text-primary);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-divider {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0 1.5rem;
+}
+.form-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--ghost-border);
+}
+
+.form-input.error { border-color: var(--dragon-red); animation: shake 0.4s ease; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+
+.anon-check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 1.5rem;
+}
+.anon-check-box {
+  width: 18px; height: 18px;
+  border: 1px solid var(--ghost-border);
+  background: var(--surface-mid);
+  border-radius: 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background 0.2s;
+  font-size: 0.65rem;
+  color: var(--surface-lowest);
+}
+.anon-check-row.checked .anon-check-box {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.anon-check-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.tax-box {
+  background: var(--surface-highest);
+  border: 1px solid var(--ghost-border);
+  border-left: 3px solid var(--tactical-gold);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  border-radius: 2px;
+}
+.tax-title {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  color: var(--tactical-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.tax-body {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.btn-submit {
+  width: 100%;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--dragon-red);
+  padding: 1.1rem;
+  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 1rem;
+  display: block;
+}
+.btn-submit:hover {
+  background: #ff3d53;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(238, 38, 62, 0.45);
+}
+
+.redirect-notice {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* SUCCESS STATE */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+.form-success.visible { display: block; }
+.success-check {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(0, 100, 0, 0.2);
+  border: 2px solid var(--cougar-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes pop-in {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-check svg {
+  width: 32px; height: 32px;
+  stroke: var(--cougar-green);
+  filter: brightness(1.6);
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: draw-check 0.5s ease 0.3s forwards;
+}
+@keyframes draw-check { to { stroke-dashoffset: 0; } }
+.success-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+.success-body {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+.success-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.success-note {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: var(--surface-lowest);
+  border-top: 1px solid var(--ghost-border);
+}
+.footer-banner {
+  background: var(--surface-mid);
+  text-align: center;
+  padding: 0.9rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 2vw, 1.1rem);
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--ghost-border);
+}
+.footer-cols {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 3rem;
+}
+.footer-logo {
+  height: 52px;
+  width: auto;
+  margin-bottom: 1rem;
+}
+.footer-tagline {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.footer-school {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer-links a {
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--primary); }
+.footer-info-line {
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.35rem;
+}
+.footer-info-line a {
+  color: var(--atmospheric-blue);
+  transition: color 0.2s;
+}
+.footer-info-line a:hover { color: var(--primary); }
+.footer-bottom {
+  border-top: 1px solid var(--ghost-border);
+  padding: 1.25rem 2.5rem;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1024px) {
+  .tiers-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .the-man-inner { grid-template-columns: 1fr; }
+  .man-photo-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .footer-cols > *:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 768px) {
+  #main-nav { padding: 0 1.25rem; }
+  .nav-links { display: none; }
+  .mission-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .fini-columns { grid-template-columns: 1fr; }
+  .criteria-grid { grid-template-columns: 1fr; }
+  .tiers-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
+  .hero-countdown-wrap { flex-direction: column; align-items: flex-start; }
+  .man-photo-col { display: flex; flex-direction: column; }
+  .fini-accent-img { display: none; }
+  .endowment-mechanics { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .mechanic-sep { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-video video { animation: none; }
+  .hero-aurora { animation: none; }
+}
+@media (max-width: 480px) {
+  .hero-h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .hero-content { padding: 100px 1.25rem 0; }
+  #mission, #the-man, #fini-flight, #scholarship, #donate { padding: 4rem 1.25rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero-countdown-wrap { padding: 1.25rem; }
+  .countdown-boxes { gap: 0.5rem; }
+  .form-panel { padding: 1.5rem 1.25rem; }
+}
+
+/* ============================================================
+   MOBILE NAV TOGGLE (hamburger)
+   ============================================================ */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text-secondary);
+  transition: transform 0.3s, opacity 0.3s;
+}
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: rgba(6, 14, 32, 0.97);
+    backdrop-filter: blur(20px);
+    padding: 2rem;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--ghost-border);
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<nav id="main-nav" role="navigation" aria-label="Main Navigation">
+  <a class="nav-brand" href="#hero" aria-label="Go to top">
+    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment Logo" height="40">
+    <span class="nav-brand-text">Mako Willard<br>Endowment</span>
+  </a>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#mission">Story</a></li>
+    <li><a href="#fini-flight">The Flight</a></li>
+    <li><a href="#scholarship">Scholarship</a></li>
+    <li><a href="#donate">Donate</a></li>
+  </ul>
+
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <a href="#donate" class="nav-cta">Donate Now</a>
+    <div class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     SECTION 1: HERO
+     ============================================================ -->
+<section id="hero" aria-label="Hero">
+  <div class="hero-bg">
+    <div class="hero-bg-video">
+      <video autoplay muted loop playsinline preload="auto"
+             aria-label="U-2 Dragon Lady aerial mission footage">
+        <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/f_auto/v1775173056/hero-video-0_yomdhg.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-bg-image" role="img" aria-label="U-2 pilot in cockpit with aurora borealis"></div>
+    <div class="hero-aurora"></div>
+    <div class="hero-scanlines"></div>
+    <div class="hero-gradient"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-top-bar reveal">
+      <div class="classification-stamp">// Campaign Brief — Authorized Use Only</div>
+      <div class="telemetry-chip">Fini Flight: Apr 9 · Active</div>
+    </div>
+
+    <p class="hero-eyebrow reveal reveal-delay-1">Lt. Col. Dustin "Mako" Willard · USAF</p>
+
+    <h1 class="hero-h1 reveal reveal-delay-2">
+      From the Edge of Space
+      <span class="line-2">To the Heart of Cedar Rapids</span>
+    </h1>
+
+    <p class="hero-sub reveal reveal-delay-3">
+      Honoring 20 years of elite military aviation by empowering the next generation of leaders. Join us in establishing the permanent Lt. Col. Dustin "Mako" Willard Scholarship Endowment at Cedar Rapids Kennedy High School.
+    </p>
+
+    <div class="hero-ctas reveal reveal-delay-4">
+      <a href="#donate" class="btn-primary">Secure the Legacy — Donate Today</a>
+      <a href="#mission" class="btn-ghost">Our Story ↓</a>
+    </div>
+
+    <!-- AUDIO PLAYER -->
+    <div class="hero-audio-player reveal reveal-delay-4" id="hero-audio-player">
+      <div class="audio-player-heading">
+        <div class="audio-player-eyebrow">// Listen</div>
+        <div class="audio-player-title">Hear Where He's Been.</div>
+      </div>
+      <div class="audio-player-controls">
+        <div class="audio-play-btn-wrap" id="audio-play-btn-wrap">
+          <div class="audio-pulse-ring" id="audio-pulse-ring"></div>
+          <button class="audio-play-btn" id="audio-play-btn" aria-label="Play voiceover">
+            <svg id="icon-play" width="16" height="18" viewBox="0 0 14 16" fill="currentColor">
+              <path d="M2 1.5l10 6.5-10 6.5V1.5z"/>
+            </svg>
+            <svg id="icon-pause" width="14" height="17" viewBox="0 0 12 15" fill="currentColor" style="display:none;">
+              <rect x="1" y="1" width="3.5" height="13" rx="1"/>
+              <rect x="7.5" y="1" width="3.5" height="13" rx="1"/>
+            </svg>
+          </button>
+        </div>
+        <div class="audio-bars" id="audio-bars">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="audio-progress-wrap">
+          <div class="audio-track" id="audio-track">
+            <div class="audio-track-fill" id="audio-track-fill"></div>
+          </div>
+          <div class="audio-time" id="audio-time">0:00 / 0:00</div>
+        </div>
+      </div>
+      <audio id="hero-audio" preload="metadata">
+        <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/f_auto/v1775175641/mako-audio-story_i9ulf9.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <div class="hero-countdown-wrap reveal reveal-delay-5">
+    <div class="countdown-label">Fini Flight Countdown · April 9, 2026 · Beale AFB</div>
+    <div class="countdown-boxes">
+      <div class="countdown-box">
+        <div class="countdown-num" id="hero-days">00</div>
+        <div class="countdown-unit">Days</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-box">
+        <div class="countdown-num" id="hero-hours">00</div>
+        <div class="countdown-unit">Hrs</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-box">
+        <div class="countdown-num" id="hero-mins">00</div>
+        <div class="countdown-unit">Min</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-box">
+        <div class="countdown-num" id="hero-secs">00</div>
+        <div class="countdown-unit">Sec</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 2: THE MISSION
+     ============================================================ -->
+<section id="mission" aria-label="The Mission">
+  <div class="mission-inner">
+
+    <div class="mission-left">
+      <div class="section-marker reveal">00 / The Mission</div>
+      <h2 class="mission-title reveal reveal-delay-1">Why This Matters</h2>
+      <p class="mission-body reveal reveal-delay-2">
+        True leadership is defined not just by what you achieve, but by who you uplift. The Lt. Col. Dustin "Mako" Willard Scholarship Endowment is a permanent financial fund established in official partnership with the Cedar Rapids Community Schools Foundation. Our mission is to raise a minimum of $25,000 to fully endow this scholarship in perpetuity. Once established, the annual investment yield will fund graduating seniors at Cedar Rapids Kennedy High School who demonstrate exceptional academic rigor, STEM focus, and leadership character.
+      </p>
+    </div>
+
+    <div class="mission-right">
+      <div class="progress-card reveal reveal-delay-1">
+        <div class="progress-header">
+          <div class="progress-raised">$15,500</div>
+          <div class="progress-goal">Goal: $25,000</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="mission-progress-bar"></div>
+        </div>
+        <div class="progress-pct">62% funded — Join us to reach the milestone</div>
+      </div>
+
+      <div class="phases-list reveal reveal-delay-2">
+        <div class="phase-item">
+          <span class="phase-num">Phase I</span>
+          <span class="phase-label">Initiation</span>
+          <span class="phase-amount">$2K–$10K</span>
+        </div>
+        <div class="phase-item active">
+          <span class="phase-num">Phase II</span>
+          <span class="phase-label">Endowment ← Current</span>
+          <span class="phase-amount">$25K</span>
+        </div>
+        <div class="phase-item">
+          <span class="phase-num">Phase III</span>
+          <span class="phase-label">Expansion</span>
+          <span class="phase-amount">$50K+</span>
+        </div>
+      </div>
+
+      <div class="trust-badge reveal reveal-delay-3">
+        <div class="trust-badge-icon">✓</div>
+        <div class="trust-badge-text">
+          Cedar Rapids Community Schools Foundation<br>
+          501(c)(3) Tax-Exempt Organization · EIN Verified
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3: THE MAN
+     ============================================================ -->
+<section id="the-man" aria-label="Biography">
+  <div class="the-man-inner">
+
+    <div class="man-left">
+      <div class="section-marker reveal">01 / The Man</div>
+      <h2 class="man-title reveal reveal-delay-1">A Career Forged in Altitude, Precision &amp; Excellence</h2>
+
+      <p class="man-bio reveal reveal-delay-2">
+        For over two decades, Lieutenant Colonel Dustin R. Willard has operated at the absolute pinnacle of military aviation. Born and raised in Cedar Rapids, Iowa, and a proud graduate of Kennedy High School, Dustin's journey took him from the familiar classrooms of his hometown to the highest, most unforgiving altitudes of global defense. Commissioned as a Distinguished Graduate from the University of Iowa's ROTC Detachment 255, his career as an Air Force Command Pilot is a testament to an unwavering dedication to the mission. Logging over 3,000 flight hours—including more than 1,700 hours in active combat zones—he has piloted the supersonic B-1B Lancer bomber, commanded tactical MC-12W reconnaissance missions, and mastered the legendary U-2S Dragon Lady, soaring 70,000 feet above the earth in a specialized full-pressure suit. Operating under the callsign "Mako"—a nod to the ocean's fastest and most precise apex predator—Lieutenant Colonel Willard has deployed in support of Operations Enduring Freedom and Inherent Resolve, executing highly classified, nationally tasked missions across the globe.
+      </p>
+
+      <!-- STATS -->
+      <div class="stats-grid reveal reveal-delay-3">
+        <div class="stat-cell">
+          <div class="stat-number" data-target="3000" data-suffix="+">0</div>
+          <div class="stat-label">Flight Hours</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-target="1700" data-suffix="+">0</div>
+          <div class="stat-label">Combat Hours</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-target="1000" data-suffix="+">0</div>
+          <div class="stat-label">Personnel Commanded</div>
+        </div>
+        <div class="stat-cell">
+          <div class="stat-number" data-static="$8B">$8B</div>
+          <div class="stat-label">Fleet Managed</div>
+        </div>
+      </div>
+
+      <!-- AIRCRAFT -->
+      <div class="reveal reveal-delay-4" style="margin-bottom:2rem;">
+        <div class="decorations-label" style="margin-bottom:0.75rem;">Aircraft Served</div>
+        <div class="aircraft-list">
+          <span class="aircraft-chip">T-6A</span>
+          <span class="aircraft-chip">T-38C</span>
+          <span class="aircraft-chip">B-1B Lancer</span>
+          <span class="aircraft-chip">BE-350</span>
+          <span class="aircraft-chip">MC-12W</span>
+          <span class="aircraft-chip">T-38A</span>
+          <span class="aircraft-chip">TU-2</span>
+          <span class="aircraft-chip highlight">U-2S Dragon Lady</span>
+        </div>
+      </div>
+
+      <!-- DECORATIONS -->
+      <div class="reveal reveal-delay-5">
+        <div class="decorations-label">Decorations & Awards</div>
+        <ul class="decorations-list">
+          <li>Meritorious Service Medal</li>
+          <li>Air Medal (8 Oak Leaf Clusters)</li>
+          <li>Aerial Achievement Medal</li>
+          <li>Air Force Commendation Medal (2 OLC)</li>
+          <li>Air Force Achievement Medal</li>
+          <li>Gen. Curtis E. LeMay Award (2013)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PHOTO COLUMN -->
+    <div class="man-photo-col">
+      <div class="portrait-frame reveal reveal-delay-2">
+        <img
+          src="./assets/willard-mako-profile-generated-cinimatic.jpg"
+          alt="Lt. Col. Dustin 'Mako' Willard — cinematic portrait"
+          class="portrait-img"
+        >
+        <div class="portrait-hud">
+          <span>// CALLSIGN: MAKO</span>
+          <span>USAF · U-2S · BEALE</span>
+          <span>U-2S DRAGON LADY</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4: THE FINI FLIGHT
+     ============================================================ -->
+<section id="fini-flight" aria-label="The Fini Flight">
+  <div class="fini-bg">
+    <video autoplay muted loop playsinline preload="auto"
+           aria-label="Aircraft taking off on runway">
+      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/f_auto/v1775176554/plane-taking-off_sq4glp.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="fini-overlay"></div>
+
+  <div class="fini-inner">
+    <div class="section-marker fini-section-marker reveal">02 / The Final Mission</div>
+
+    <div class="fini-countdown-big reveal reveal-delay-1">
+      <div class="fini-box">
+        <div class="fini-num" id="fini-days">00</div>
+        <div class="fini-unit">Days</div>
+      </div>
+      <div class="fini-sep">:</div>
+      <div class="fini-box">
+        <div class="fini-num" id="fini-hours">00</div>
+        <div class="fini-unit">Hours</div>
+      </div>
+      <div class="fini-sep">:</div>
+      <div class="fini-box">
+        <div class="fini-num" id="fini-mins">00</div>
+        <div class="fini-unit">Minutes</div>
+      </div>
+      <div class="fini-sep">:</div>
+      <div class="fini-box">
+        <div class="fini-num" id="fini-secs">00</div>
+        <div class="fini-unit">Seconds</div>
+      </div>
+    </div>
+
+    <p class="fini-date-label reveal reveal-delay-2">April 9, 2026 · Beale Air Force Base, California</p>
+
+    <div class="fini-columns">
+      <div class="reveal reveal-delay-2">
+        <div class="fini-col-title">What Is a Fini Flight?</div>
+        <p class="fini-col-body">
+          The "Fini Flight" is one of military aviation's most revered traditions, tracing its roots to the Army Air Forces in World War II. It marks an aviator's final departure from active service. At Beale Air Force Base, the Fini Flight of a Dragon Lady pilot is among the most elite ceremonies in all of aviation. Upon landing, the pilot is met by family, squadron mates, and base leadership — and traditionally doused with a fire hose and champagne. It is a moment of profound transition: the end of a mission that has spanned continents, decades, and altitudes that most humans will never reach.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-3">
+        <div class="fini-col-title">The End of an Era</div>
+        <p class="fini-col-body">
+          Lt. Col. Willard's retirement coincides with the phased divestment of the U-2 Dragon Lady program itself, with full fleet retirement scheduled for 2026. His final flight is not just the close of a personal chapter — it marks the twilight of one of the most legendary aviation programs in military history. The endowment launch on April 9th transforms this moment of farewell into a permanent gift to the next generation, ensuring that a Cedar Rapids kid who touched the edge of space will forever inspire those who follow.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5: THE SCHOLARSHIP
+     ============================================================ -->
+<section id="scholarship" aria-label="The Scholarship">
+  <div class="scholarship-inner">
+    <div class="section-marker reveal">03 / The Impact</div>
+    <h2 class="scholarship-title reveal reveal-delay-1">Fueling the Next Generation of Kennedy Cougars</h2>
+    <div class="scholarship-accent-line reveal reveal-delay-2"></div>
+    <p class="scholarship-subhead reveal reveal-delay-2">
+      By contributing today, you are ensuring that decades from now, young students in Cedar Rapids will be inspired by the story of a local graduate who reached the edge of space — and who reached back down to help them soar.
+    </p>
+
+    <div class="criteria-grid">
+      <div class="criteria-card reveal reveal-delay-1">
+        <div class="criteria-num">Criterion 01</div>
+        <div class="criteria-title">Academic Excellence</div>
+        <p class="criteria-body">Minimum 3.5 GPA. Honoring Willard's distinction as an engineering graduate and ROTC Distinguished Graduate from the University of Iowa.</p>
+      </div>
+      <div class="criteria-card reveal reveal-delay-2">
+        <div class="criteria-num">Criterion 02</div>
+        <div class="criteria-title">STEM &amp; Service Focus</div>
+        <p class="criteria-body">Preference for students pursuing STEM degrees, aviation, or entering a collegiate ROTC program or federal military academy.</p>
+      </div>
+      <div class="criteria-card reveal reveal-delay-3">
+        <div class="criteria-num">Criterion 03</div>
+        <div class="criteria-title">Leadership &amp; Character</div>
+        <p class="criteria-body">Demonstrated leadership in school activities, athletics, or community service — echoing the spirit of the Kennedy Cougars (Green &amp; Gold).</p>
+      </div>
+    </div>
+
+    <div class="endowment-mechanics reveal reveal-delay-2">
+      <div class="mechanic-item">
+        <span class="mechanic-text">The Principal Is Permanently Locked</span>
+        <span class="mechanic-sep">·</span>
+      </div>
+      <div class="mechanic-item">
+        <span class="mechanic-text">Invested by CRCSF</span>
+        <span class="mechanic-sep">·</span>
+      </div>
+      <div class="mechanic-item">
+        <span class="mechanic-text">Annual Yield Funds Scholarships</span>
+        <span class="mechanic-sep">·</span>
+      </div>
+      <div class="mechanic-item">
+        <span class="mechanic-text">Administered at Kennedy Senior Awards Night</span>
+      </div>
+    </div>
+
+    <p class="crcsf-note reveal reveal-delay-3">
+      // The CRCSF currently administers 80+ senior scholarships and will handle all selection, disbursement, and reporting.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6: DONATE (TIERS + FORM)
+     ============================================================ -->
+<section id="donate" aria-label="Donate">
+  <div class="donate-inner">
+    <div class="section-marker reveal">04 / Secure the Legacy</div>
+    <h2 class="donate-title reveal reveal-delay-1">Choose Your Altitude</h2>
+    <p class="donate-subtitle reveal reveal-delay-2">Each tier is named in honor of the mission. Click any tier to pre-select it in the form below.</p>
+
+    <!-- TIER CARDS -->
+    <div class="tiers-grid" id="tiers-grid">
+      <div class="tier-card reveal reveal-delay-1" data-amount="100" role="button" tabindex="0" aria-label="Select $100 tier">
+        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+        <div class="tier-amount">$100</div>
+        <div class="tier-name">The Cougar Vanguard</div>
+        <p class="tier-desc">Funds textbook and supply stipends for incoming college freshmen.</p>
+      </div>
+
+      <div class="tier-card reveal reveal-delay-2" data-amount="500" role="button" tabindex="0" aria-label="Select $500 tier">
+        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+        <div class="tier-amount">$500</div>
+        <div class="tier-name">The Aviator's Circle</div>
+        <p class="tier-desc">Provides foundational tuition support for future engineers and leaders.</p>
+      </div>
+
+      <div class="tier-card featured reveal reveal-delay-3" data-amount="1085" role="button" tabindex="0" aria-label="Select $1,085 featured tier">
+        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+        <div class="tier-featured-badge">⭐ Featured Tier</div>
+        <div class="tier-amount">$1,085</div>
+        <div class="tier-name">The Fini Flight Commemorative</div>
+        <p class="tier-desc">A precise tier honoring tail number 1085 recently retired at Beale AFB. Certificate of appreciation + campaign recognition.</p>
+      </div>
+
+      <div class="tier-card reveal reveal-delay-4" data-amount="5000" role="button" tabindex="0" aria-label="Select $5,000+ tier">
+        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+        <div class="tier-amount">$5,000+</div>
+        <div class="tier-name">The Commander's Council</div>
+        <p class="tier-desc">A legacy-defining contribution that permanently anchors the endowment's corpus. Named co-benefactor status.</p>
+      </div>
+    </div>
+
+    <div class="custom-amount-row reveal reveal-delay-5">
+      <span class="custom-amount-label">// Or enter your own amount →</span>
+    </div>
+
+    <!-- DONATION FORM -->
+    <div class="form-panel reveal reveal-delay-2" id="donation-form-panel">
+
+      <div id="form-fields-wrap">
+        <div class="form-header">
+          <div class="form-title">// Mission: Secure the Legacy</div>
+          <div class="form-telemetry">
+            <span class="form-chip">Raised: $15,500</span>
+            <span class="form-chip">Goal: $25,000</span>
+            <span class="form-chip">62% Funded</span>
+            <span class="form-chip">501(c)(3) Verified</span>
+          </div>
+        </div>
+
+        <!-- FREQUENCY TOGGLE -->
+        <div class="freq-toggle" role="group" aria-label="Donation frequency">
+          <button class="freq-btn active" data-freq="one-time" type="button">One-Time</button>
+          <button class="freq-btn" data-freq="monthly" type="button">Monthly</button>
+        </div>
+
+        <!-- AMOUNT PILLS -->
+        <div class="amount-pills" id="amount-pills" role="group" aria-label="Select donation amount">
+          <button class="amount-pill" data-pill="100" type="button">$100</button>
+          <button class="amount-pill" data-pill="500" type="button">$500</button>
+          <button class="amount-pill" data-pill="1085" type="button">$1,085</button>
+          <button class="amount-pill" data-pill="5000" type="button">$5,000</button>
+        </div>
+
+        <form id="donation-form" novalidate>
+          <div class="form-group">
+            <label class="form-label" for="custom-amount">$ Custom Amount</label>
+            <input
+              type="number"
+              id="custom-amount"
+              name="amount"
+              class="form-input mono-input"
+              placeholder="Enter Amount"
+              min="1"
+              aria-label="Custom donation amount"
+            >
+          </div>
+
+          <div class="form-divider">// Your Details</div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First Name *</label>
+              <input type="text" id="first-name" name="firstName" class="form-input" placeholder="First Name" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="lastName" class="form-input" placeholder="Last Name" autocomplete="family-name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone (Optional)</label>
+            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" autocomplete="tel">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="connection">Your Connection</label>
+            <select id="connection" name="connection" class="form-select">
+              <option value="" disabled selected>Select your connection</option>
+              <option value="kennedy-alumni">Kennedy High School Alumni</option>
+              <option value="iowa-alumni">University of Iowa Alumni</option>
+              <option value="military">Military Colleague &amp; Veteran</option>
+              <option value="defense">Defense &amp; Aerospace Industry</option>
+              <option value="family">Family &amp; Friends of Lt. Col. Willard</option>
+              <option value="beale">Beale AFB Community</option>
+              <option value="general">General Supporter</option>
+            </select>
+          </div>
+
+          <div class="form-divider">// Dedication (Optional)</div>
+
+          <div class="form-group">
+            <label class="form-label" for="dedication">In Honor / Memory of</label>
+            <input type="text" id="dedication" name="dedication" class="form-input" placeholder="Name (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message to the Willard Family</label>
+            <textarea id="message" name="message" class="form-textarea" rows="3" placeholder="Your message (optional)"></textarea>
+          </div>
+
+          <!-- ANON CHECKBOX -->
+          <div class="anon-check-row" id="anon-row" role="checkbox" aria-checked="false" tabindex="0">
+            <div class="anon-check-box" id="anon-check-box">✓</div>
+            <span class="anon-check-label">[ ] I wish to remain anonymous on the donor honor roll</span>
+          </div>
+
+          <!-- TAX BOX -->
+          <div class="tax-box">
+            <div class="tax-title">Your Gift Is 100% Tax-Deductible</div>
+            <p class="tax-body">Administered by the Cedar Rapids Community Schools Foundation, a registered 501(c)(3) nonprofit organization. You will receive an official tax receipt at the email address provided.</p>
+          </div>
+
+          <!-- SUBMIT -->
+          <button type="submit" class="btn-submit" id="submit-btn">
+            Secure the Legacy — Donate Today →
+          </button>
+
+          <p class="redirect-notice">
+            // By submitting, you will be redirected to the Cedar Rapids Community Schools Foundation's secure payment portal. Your information is protected and will never be sold or shared. This is a campaign prototype — payment is processed exclusively by CRCSF.
+          </p>
+        </form>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="form-success" id="form-success">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="success-title">Mission Secured.</div>
+        <p class="success-body" id="success-body">
+          Thank you. Your legacy gift has been received.
+        </p>
+        <p class="success-body" id="success-receipt" style="font-size:0.9rem;">
+          An official tax receipt will be sent to your email address.
+        </p>
+        <div class="success-buttons">
+          <button class="btn-primary" id="share-btn" type="button">Share This Campaign</button>
+          <a href="#hero" class="btn-ghost">Return to Top</a>
+        </div>
+        <p class="success-note">
+          // You will receive confirmation from the Cedar Rapids Community Schools Foundation within 2 business days.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-banner">From the Edge of Space to the Heart of Cedar Rapids</div>
+
+  <div class="footer-cols">
+    <div>
+      <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" class="footer-logo">
+      <p class="footer-tagline">A permanent scholarship endowment honoring 20+ years of elite military service and a lifetime of leadership forged at 70,000 feet.</p>
+      <p class="footer-school">Cedar Rapids Kennedy High School · Go Cougars</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#mission">Our Story</a></li>
+        <li><a href="#fini-flight">The Flight</a></li>
+        <li><a href="#scholarship">Scholarship</a></li>
+        <li><a href="#donate">Donate</a></li>
+        <li><a href="#the-man">Biography</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Foundation</div>
+      <p class="footer-info-line">Cedar Rapids Community Schools Foundation</p>
+      <p class="footer-info-line">501(c)(3) Nonprofit Organization</p>
+      <p class="footer-info-line">Questions: <a href="mailto:info@crcsf.org">info@crcsf.org</a></p>
+      <p class="footer-info-line"><a href="https://MakoWillardEndowment.org" target="_blank" rel="noopener noreferrer">MakoWillardEndowment.org</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Lt. Col. Dustin "Mako" Willard Scholarship Endowment Campaign · Administered by CRCSF · All rights reserved · Classification: Authorized Use Only
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+(function () {
+  'use strict';
+
+  /* ----------------------------------------------------------
+     1. COUNTDOWN TIMER
+     ---------------------------------------------------------- */
+  const FINI_DATE = new Date('2026-04-09T14:00:00-07:00');
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function updateCountdowns() {
+    const now = new Date();
+    const diff = FINI_DATE - now;
+
+    if (diff <= 0) {
+      const els = ['hero-days','hero-hours','hero-mins','hero-secs','fini-days','fini-hours','fini-mins','fini-secs'];
+      els.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = '00'; });
+      return;
+    }
+
+    const days  = Math.floor(diff / 864e5);
+    const hours = Math.floor((diff % 864e5) / 36e5);
+    const mins  = Math.floor((diff % 36e5) / 6e4);
+    const secs  = Math.floor((diff % 6e4) / 1e3);
+
+    const pairs = [
+      ['hero-days', days], ['hero-hours', hours], ['hero-mins', mins], ['hero-secs', secs],
+      ['fini-days', days], ['fini-hours', hours], ['fini-mins', mins], ['fini-secs', secs]
+    ];
+    pairs.forEach(([id, val]) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = pad(val);
+    });
+  }
+
+  updateCountdowns();
+  setInterval(updateCountdowns, 1000);
+
+  /* AUDIO PLAYER */
+  const audio       = document.getElementById('hero-audio');
+  const playBtn     = document.getElementById('audio-play-btn');
+  const btnWrap     = document.getElementById('audio-play-btn-wrap');
+  const audioBars   = document.getElementById('audio-bars');
+  const iconPlay    = document.getElementById('icon-play');
+  const iconPause   = document.getElementById('icon-pause');
+  const trackEl     = document.getElementById('audio-track');
+  const fillEl      = document.getElementById('audio-track-fill');
+  const timeEl      = document.getElementById('audio-time');
+
+  function fmt(s) {
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ':' + String(sec).padStart(2, '0');
+  }
+
+  function syncTime() {
+    const pct = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
+    fillEl.style.width = pct + '%';
+    timeEl.textContent = fmt(audio.currentTime) + ' / ' + (audio.duration ? fmt(audio.duration) : '0:00');
+  }
+
+  function setPlaying(active) {
+    iconPlay.style.display  = active ? 'none'  : 'block';
+    iconPause.style.display = active ? 'block' : 'none';
+    playBtn.classList.toggle('playing', active);
+    btnWrap.classList.toggle('playing', active);
+    audioBars.classList.toggle('active', active);
+  }
+
+  playBtn.addEventListener('click', function () {
+    if (audio.paused) { audio.play(); setPlaying(true); }
+    else              { audio.pause(); setPlaying(false); }
+  });
+
+  audio.addEventListener('timeupdate', syncTime);
+  audio.addEventListener('loadedmetadata', syncTime);
+  audio.addEventListener('ended', function () {
+    setPlaying(false);
+    fillEl.style.width = '0%';
+    audio.currentTime = 0;
+    syncTime();
+  });
+
+  trackEl.addEventListener('click', function (e) {
+    if (!audio.duration) return;
+    const rect = trackEl.getBoundingClientRect();
+    audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+  });
+
+  /* ----------------------------------------------------------
+     2. SCROLL REVEAL (IntersectionObserver)
+     ---------------------------------------------------------- */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('revealed');
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* ----------------------------------------------------------
+     3. STAT COUNTERS
+     ---------------------------------------------------------- */
+  const statsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.animated) {
+          e.target.dataset.animated = '1';
+          const target = parseInt(e.target.dataset.target, 10);
+          const suffix = e.target.dataset.suffix || '';
+          if (!target) return;
+          const duration = 1800;
+          const start = performance.now();
+          function step(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(eased * target);
+            e.target.textContent = current.toLocaleString() + suffix;
+            if (progress < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  document.querySelectorAll('.stat-number[data-target]').forEach(el => statsObserver.observe(el));
+
+  /* ----------------------------------------------------------
+     4. PROGRESS BAR
+     ---------------------------------------------------------- */
+  const progressBar = document.getElementById('mission-progress-bar');
+  if (progressBar) {
+    const progressObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !progressBar.dataset.animated) {
+            progressBar.dataset.animated = '1';
+            setTimeout(() => { progressBar.style.width = '62%'; }, 200);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    progressObserver.observe(progressBar.closest('#mission'));
+  }
+
+  /* ----------------------------------------------------------
+     5. NAV SCROLL PROGRESS
+     ---------------------------------------------------------- */
+  const scrollProgressBar = document.getElementById('scroll-progress');
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+  /* ----------------------------------------------------------
+     6. ACTIVE NAV LINK (IntersectionObserver)
+     ---------------------------------------------------------- */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const navObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.getAttribute('id');
+          navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    },
+    { threshold: 0.35, rootMargin: '-60px 0px -40% 0px' }
+  );
+  sections.forEach(s => navObserver.observe(s));
+
+  /* ----------------------------------------------------------
+     7. TIER CARD SELECTION
+     ---------------------------------------------------------- */
+  const tierCards = document.querySelectorAll('.tier-card');
+  const customAmountInput = document.getElementById('custom-amount');
+  const amountPills = document.querySelectorAll('.amount-pill');
+
+  function selectAmount(amount) {
+    // update pills
+    amountPills.forEach(p => {
+      p.classList.toggle('active', parseInt(p.dataset.pill, 10) === amount);
+    });
+    // update custom input
+    if (customAmountInput) customAmountInput.value = amount;
+    // update tier cards
+    tierCards.forEach(c => {
+      c.classList.toggle('selected', parseInt(c.dataset.amount, 10) === amount);
+    });
+  }
+
+  tierCards.forEach(card => {
+    function handleTierSelect() {
+      const amount = parseInt(card.dataset.amount, 10);
+      selectAmount(amount);
+      const formPanel = document.getElementById('donation-form-panel');
+      if (formPanel) {
+        setTimeout(() => {
+          formPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+    }
+    card.addEventListener('click', handleTierSelect);
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTierSelect(); } });
+  });
+
+  /* ----------------------------------------------------------
+     8. AMOUNT PILLS
+     ---------------------------------------------------------- */
+  amountPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const amount = parseInt(pill.dataset.pill, 10);
+      selectAmount(amount);
+    });
+  });
+
+  if (customAmountInput) {
+    customAmountInput.addEventListener('input', () => {
+      const val = parseInt(customAmountInput.value, 10);
+      amountPills.forEach(p => p.classList.toggle('active', parseInt(p.dataset.pill, 10) === val));
+      tierCards.forEach(c => c.classList.toggle('selected', parseInt(c.dataset.amount, 10) === val));
+    });
+  }
+
+  /* ----------------------------------------------------------
+     9. FREQUENCY TOGGLE
+     ---------------------------------------------------------- */
+  document.querySelectorAll('.freq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  /* ----------------------------------------------------------
+     10. ANONYMOUS CHECKBOX
+     ---------------------------------------------------------- */
+  const anonRow = document.getElementById('anon-row');
+  if (anonRow) {
+    function toggleAnon() {
+      const checked = anonRow.classList.toggle('checked');
+      anonRow.setAttribute('aria-checked', String(checked));
+    }
+    anonRow.addEventListener('click', toggleAnon);
+    anonRow.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAnon(); } });
+  }
+
+  /* ----------------------------------------------------------
+     11. MOBILE NAV HAMBURGER
+     ---------------------------------------------------------- */
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinksEl = document.getElementById('nav-links');
+  if (hamburger && navLinksEl) {
+    hamburger.addEventListener('click', () => {
+      navLinksEl.classList.toggle('open');
+    });
+    navLinksEl.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinksEl.classList.remove('open'));
+    });
+  }
+
+  /* ----------------------------------------------------------
+     12. FORM VALIDATION + SUBMISSION
+     ---------------------------------------------------------- */
+  const donationForm = document.getElementById('donation-form');
+  const formFieldsWrap = document.getElementById('form-fields-wrap');
+  const formSuccess = document.getElementById('form-success');
+
+  if (donationForm) {
+    donationForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Collect values
+      const amount = customAmountInput ? customAmountInput.value.trim() : '';
+      const firstName = document.getElementById('first-name')?.value.trim() || '';
+      const email = document.getElementById('email')?.value.trim() || '';
+
+      let valid = true;
+
+      // Validate amount
+      if (!amount || isNaN(Number(amount)) || Number(amount) < 1) {
+        if (customAmountInput) {
+          customAmountInput.classList.add('error');
+          setTimeout(() => customAmountInput.classList.remove('error'), 600);
+        }
+        valid = false;
+      }
+
+      // Validate first name
+      const firstNameEl = document.getElementById('first-name');
+      if (!firstName) {
+        if (firstNameEl) {
+          firstNameEl.classList.add('error');
+          setTimeout(() => firstNameEl.classList.remove('error'), 600);
+        }
+        valid = false;
+      }
+
+      // Validate email
+      const emailEl = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email || !emailRegex.test(email)) {
+        if (emailEl) {
+          emailEl.classList.add('error');
+          setTimeout(() => emailEl.classList.remove('error'), 600);
+        }
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      // Show success state
+      const formattedAmount = Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+      const successBody = document.getElementById('success-body');
+      const successReceipt = document.getElementById('success-receipt');
+      if (successBody) {
+        successBody.textContent = `Thank you, ${firstName}. Your legacy gift of ${formattedAmount} has been received.`;
+      }
+      if (successReceipt) {
+        successReceipt.textContent = `An official tax receipt will be sent to ${email}.`;
+      }
+
+      if (formFieldsWrap) formFieldsWrap.style.display = 'none';
+      if (formSuccess) formSuccess.classList.add('visible');
+
+      // Scroll success into view
+      setTimeout(() => {
+        const panel = document.getElementById('donation-form-panel');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    });
+  }
+
+  /* ----------------------------------------------------------
+     13. SHARE BUTTON
+     ---------------------------------------------------------- */
+  const shareBtn = document.getElementById('share-btn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', async () => {
+      const shareData = {
+        title: 'Lt. Col. Dustin "Mako" Willard Scholarship Endowment',
+        text: 'Join me in honoring Lt. Col. Willard\'s 20+ years of elite military service by establishing a permanent scholarship at Cedar Rapids Kennedy High School.',
+        url: window.location.href
+      };
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch (_) {}
+      } else {
+        navigator.clipboard?.writeText(window.location.href).then(() => {
+          shareBtn.textContent = 'Link Copied!';
+          setTimeout(() => { shareBtn.textContent = 'Share This Campaign'; }, 2500);
+        });
+      }
+    });
+  }
+
+  /* ----------------------------------------------------------
+     14. INITIAL HERO REVEAL (no wait for scroll)
+     ---------------------------------------------------------- */
+  document.querySelectorAll('#hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('revealed'), 100 + i * 120);
+  });
+
+})();
+</script>
+
+</body>
+</html>
