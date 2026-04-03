@@ -1914,11 +1914,42 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    FOOTER
    ============================================================ */
 footer {
+  position: relative;
+  overflow: hidden;
   background: var(--surface-lowest);
-  border-top: 1px solid var(--ghost-border);
+  border-top: none;
+}
+.footer-bg-video {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.footer-bg-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+}
+.footer-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 32, 0.55) 0%,
+    rgba(6, 14, 32, 0.40) 50%,
+    rgba(6, 14, 32, 0.75) 100%
+  );
+}
+footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
+  position: relative;
+  z-index: 2;
 }
 .footer-banner {
-  background: var(--surface-mid);
+  background: rgba(26, 37, 64, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   text-align: center;
   padding: 0.9rem;
   font-family: var(--font-display);
@@ -1930,7 +1961,7 @@ footer {
 .footer-cols {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3.5rem 2.5rem;
+  padding: 12rem 2.5rem 10rem;
   display: grid;
   grid-template-columns: 1.5fr 1fr 1.5fr;
   gap: 3rem;
@@ -1990,7 +2021,7 @@ footer {
 .footer-info-line a:hover { color: var(--primary); }
 .footer-bottom {
   border-top: 1px solid var(--ghost-border);
-  padding: 1.25rem 2.5rem;
+  padding: 3.5rem 2.5rem;
   text-align: center;
   font-family: var(--font-mono);
   font-size: 0.58rem;
@@ -2695,6 +2726,13 @@ footer {
      FOOTER
      ============================================================ -->
 <footer>
+  <div class="footer-bg-video">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="https://res.cloudinary.com/dsbllwpbh/video/upload/q_auto/f_auto/v1775175913/mako-in-space_nxpmuy.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="footer-bg-overlay"></div>
+
   <div class="footer-banner">From the Edge of Space to the Heart of Cedar Rapids</div>
 
   <div class="footer-cols">
