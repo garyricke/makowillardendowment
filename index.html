@@ -91,7 +91,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .gate-fallback {
   position: absolute;
   inset: 0;
-  background-image: url('./assets/u2-pilot-cockpit-aurora-night-portrait.jpeg');
+  background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375053/darz3jpfgcmcjoejeolh.jpg');
   background-size: cover;
   background-position: center top;
 }
@@ -459,7 +459,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 .hero-bg-image {
   position: absolute;
   inset: 0;
-  background-image: url('./assets/u2-pilot-cockpit-aurora-night-portrait.jpeg');
+  background-image: url('https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375053/darz3jpfgcmcjoejeolh.jpg');
   background-size: cover;
   background-position: center 20%;
   opacity: 0.28;
@@ -1467,6 +1467,70 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 /* ============================================================
    SECTION 6 — TIERS + FORM
    ============================================================ */
+/* ── eTapestry live form section ── */
+#donate-live {
+  padding: 6rem 2.5rem;
+  background: var(--surface-lowest);
+  position: relative;
+}
+#donate-live::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--tactical-gold), transparent);
+}
+.donate-live-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.etap-frame {
+  border: 1px solid var(--ghost-border-gold);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+.etap-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  background: rgba(234, 195, 74, 0.06);
+  border-bottom: 1px solid var(--ghost-border-gold);
+}
+.etap-frame-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--tactical-gold);
+  text-transform: uppercase;
+}
+.etap-frame-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--tactical-gold);
+  border: 1px solid rgba(234, 195, 74, 0.35);
+  border-radius: 2px;
+  padding: 0.2rem 0.55rem;
+  text-transform: uppercase;
+}
+.etap-frame-body {
+  background: var(--surface-low);
+  padding: 0;
+  overflow: hidden;
+}
+#etapIframe {
+  filter: invert(1) hue-rotate(180deg) saturate(0.75) brightness(0.88);
+}
+.etap-fine-print {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: rgba(182, 196, 255, 0.35);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
 #donate {
   padding: 6rem 2.5rem;
   background: var(--surface);
@@ -2127,7 +2191,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 
   <!-- Gate UI -->
   <div class="gate-content">
-    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" class="gate-logo">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375055/aftylzpg9sbleckq4xbm.svg" alt="Mako Willard Endowment" class="gate-logo">
 
     <div>
       <p class="gate-label">Classified Access — Clearance Required</p>
@@ -2162,7 +2226,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
      ============================================================ -->
 <nav id="main-nav" role="navigation" aria-label="Main Navigation">
   <a class="nav-brand" href="#hero" aria-label="Go to top">
-    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment Logo" height="40">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375055/aftylzpg9sbleckq4xbm.svg" alt="Mako Willard Endowment Logo" height="40">
     <span class="nav-brand-text">Mako Willard<br>Endowment</span>
   </a>
 
@@ -2174,7 +2238,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   </ul>
 
   <div style="display:flex;align-items:center;gap:1rem;">
-    <a href="#donate" class="nav-cta">Donate Now</a>
+    <a href="#donate-live" class="nav-cta">Donate Now</a>
     <div class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" role="button" tabindex="0">
       <span></span><span></span><span></span>
     </div>
@@ -2287,7 +2351,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
      ============================================================ -->
 <section id="mission" aria-label="The Mission">
   <div style="display: flex; justify-content: center; padding-bottom: 3.5rem;">
-    <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" style="height: 200px; width: auto; display: block;">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375055/aftylzpg9sbleckq4xbm.svg" alt="Mako Willard Endowment" style="height: 200px; width: auto; display: block;">
   </div>
   <div class="mission-inner">
 
@@ -2408,7 +2472,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
     <div class="man-photo-col">
       <div class="portrait-frame reveal reveal-delay-2">
         <img
-          src="./assets/willard-mako-profile-generated-cinimatic.jpg"
+          src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375054/vot8rhwm72evpz5irjc0.jpg"
           alt="Lt. Col. Dustin 'Mako' Willard — cinematic portrait"
           class="portrait-img"
         >
@@ -2723,6 +2787,28 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 </section>
 
 <!-- ============================================================
+     SECTION 6B: DONATE — eTAPESTRY LIVE FORM
+     ============================================================ -->
+<section id="donate-live" aria-label="Official Donation Form">
+  <div class="donate-live-inner">
+    <div class="section-marker reveal">05 / Official Payment Portal</div>
+    <h2 class="donate-title reveal reveal-delay-1">Make Your Gift</h2>
+    <p class="donate-subtitle reveal reveal-delay-2">Processed securely through the Cedar Rapids Community Schools Foundation — a registered 501(c)(3) nonprofit.</p>
+    <div class="etap-frame reveal reveal-delay-3">
+      <div class="etap-frame-header">
+        <span class="etap-frame-label">// Secure Donation Form</span>
+        <span class="etap-frame-badge">501(c)(3) Verified</span>
+      </div>
+      <div class="etap-frame-body">
+        <script type="text/JavaScript" src="//app.etapestry.com/hosted/eTapestry.com/etapEmbedResponsiveResizing.js"></script>
+        <iframe id="etapIframe" style="border:none;width:100%;display:block;min-height:1200px;" src="https://app.etapestry.com/onlineforms/CedarRapidsCommunitySchools/MAKO.html"></iframe>
+      </div>
+    </div>
+    <p class="etap-fine-print">// Your information is protected and will never be sold or shared.</p>
+  </div>
+</section>
+
+<!-- ============================================================
      FOOTER
      ============================================================ -->
 <footer>
@@ -2737,7 +2823,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 
   <div class="footer-cols">
     <div>
-      <img src="./assets/willard-mako-logo.svg" alt="Mako Willard Endowment" class="footer-logo">
+      <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776375055/aftylzpg9sbleckq4xbm.svg" alt="Mako Willard Endowment" class="footer-logo">
       <p class="footer-tagline">A permanent scholarship endowment honoring 20+ years of elite military service and a lifetime of leadership forged at 70,000 feet.</p>
       <p class="footer-school">Cedar Rapids Kennedy High School · Go Cougars</p>
     </div>
