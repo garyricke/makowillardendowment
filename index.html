@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lt. Col. Dustin "Mako" Willard Scholarship Endowment</title>
 <meta name="description" content="Honoring 20 years of elite military aviation by empowering the next generation of leaders. Join us in establishing the permanent Lt. Col. Dustin 'Mako' Willard Scholarship Endowment at Cedar Rapids Kennedy High School.">
+<meta name="theme-color" content="#060e20">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=B612+Mono:ital,wght@0,400;0,700;1,400&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -909,6 +913,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   padding: 2rem;
   margin-bottom: 1.5rem;
   border: 1px solid var(--ghost-border);
+  position: relative;
 }
 .progress-header {
   display: flex;
@@ -1347,6 +1352,147 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   filter: grayscale(0.4);
 }
 
+.fini-retro-stamp {
+  margin: 2rem 0 1.5rem;
+}
+.fini-retro-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.35em;
+  color: var(--dragon-red);
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+}
+.fini-retro-date {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: 0.06em;
+}
+.fini-retro-location {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--atmospheric-blue);
+  text-transform: uppercase;
+  margin-top: 1rem;
+}
+
+/* ============================================================
+   SECTION 4B — THE FIRST AWARD (Kennedy HS ceremony countdown)
+   ============================================================ */
+#first-award {
+  position: relative;
+  padding: 7rem 2.5rem;
+  overflow: hidden;
+  background: var(--surface-lowest);
+}
+.award-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.award-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.9;
+}
+.award-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 14, 32, 0.78) 0%,
+    rgba(6, 14, 32, 0.28) 35%,
+    rgba(6, 14, 32, 0.28) 65%,
+    rgba(6, 14, 32, 0.82) 100%
+  );
+}
+.award-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+.award-section-marker {
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.award-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.75rem);
+  color: var(--text-primary);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+.award-accent-line {
+  width: 80px;
+  height: 3px;
+  background: var(--tactical-gold);
+  margin: 0 auto 1.75rem;
+}
+.award-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  color: var(--atmospheric-blue);
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+.award-countdown-big {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.award-box { text-align: center; }
+.award-num {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  color: var(--tactical-gold);
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+.award-unit {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+.award-sep {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--cougar-green);
+  margin-top: -12px;
+  animation: sep-blink 1s step-end infinite;
+}
+.award-date-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--atmospheric-blue);
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+.award-note {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
 /* ============================================================
    SECTION 5 — THE SCHOLARSHIP
    ============================================================ */
@@ -1624,356 +1770,6 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   color: var(--text-secondary);
   line-height: 1.6;
 }
-.tier-selected-indicator {
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: var(--tactical-gold);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.6rem;
-  color: var(--surface-lowest);
-  font-weight: 700;
-}
-.tier-card.selected .tier-selected-indicator {
-  display: flex;
-}
-
-.custom-amount-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 3.5rem;
-}
-.custom-amount-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-
-/* ---- FORM ---- */
-.form-panel {
-  background: var(--surface-low);
-  border: 1px solid var(--ghost-border);
-  padding: 2.5rem;
-  border-radius: 2px;
-}
-.form-header {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-.form-title {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
-  color: var(--primary);
-  text-transform: uppercase;
-}
-.form-telemetry {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-.form-chip {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  background: var(--surface-mid);
-  border: 1px solid var(--ghost-border);
-  padding: 0.2rem 0.6rem;
-  text-transform: uppercase;
-}
-
-.freq-toggle {
-  display: flex;
-  gap: 0;
-  margin-bottom: 1.75rem;
-  width: fit-content;
-  border: 1px solid var(--ghost-border);
-  border-radius: 2px;
-  overflow: hidden;
-}
-.freq-btn {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  background: transparent;
-  padding: 0.6rem 1.5rem;
-  transition: color 0.2s, background 0.2s;
-  border: none;
-}
-.freq-btn.active {
-  color: var(--surface-lowest);
-  background: var(--primary);
-}
-
-.amount-pills {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.25rem;
-}
-.amount-pill {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-  background: var(--surface-mid);
-  border: 1px solid var(--ghost-border);
-  padding: 0.5rem 1.1rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  border-radius: 1px;
-}
-.amount-pill:hover {
-  border-color: rgba(182, 196, 255, 0.3);
-  color: var(--text-primary);
-}
-.amount-pill.active {
-  border-color: var(--tactical-gold);
-  color: var(--tactical-gold);
-  background: rgba(234, 195, 74, 0.08);
-}
-
-.form-group {
-  margin-bottom: 1.25rem;
-}
-.form-label {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.18em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 0.4rem;
-}
-.form-input,
-.form-select,
-.form-textarea {
-  width: 100%;
-  background: var(--surface-mid);
-  border: 1px solid var(--ghost-border);
-  border-radius: 2px;
-  color: var(--text-primary);
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 0.75rem 1rem;
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-.form-input:focus,
-.form-select:focus,
-.form-textarea:focus {
-  border-color: rgba(182, 196, 255, 0.4);
-  background: var(--surface-highest);
-}
-.form-input.mono-input {
-  font-family: var(--font-mono);
-}
-.form-input::placeholder { color: var(--text-muted); }
-.form-textarea::placeholder { color: var(--text-muted); }
-.form-textarea { resize: vertical; min-height: 90px; }
-.form-select {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6580' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  padding-right: 2.5rem;
-  cursor: pointer;
-}
-.form-select option {
-  background: var(--surface-mid);
-  color: var(--text-primary);
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.form-divider {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.2em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0 1.5rem;
-}
-.form-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--ghost-border);
-}
-
-.form-input.error { border-color: var(--dragon-red); animation: shake 0.4s ease; }
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%       { transform: translateX(-8px); }
-  40%       { transform: translateX(8px); }
-  60%       { transform: translateX(-5px); }
-  80%       { transform: translateX(5px); }
-}
-
-.anon-check-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  user-select: none;
-  margin-bottom: 1.5rem;
-}
-.anon-check-box {
-  width: 18px; height: 18px;
-  border: 1px solid var(--ghost-border);
-  background: var(--surface-mid);
-  border-radius: 1px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: border-color 0.2s, background 0.2s;
-  font-size: 0.65rem;
-  color: var(--surface-lowest);
-}
-.anon-check-row.checked .anon-check-box {
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.anon-check-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-  text-transform: uppercase;
-}
-
-.tax-box {
-  background: var(--surface-highest);
-  border: 1px solid var(--ghost-border);
-  border-left: 3px solid var(--tactical-gold);
-  padding: 1.25rem 1.5rem;
-  margin-bottom: 1.75rem;
-  border-radius: 2px;
-}
-.tax-title {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.18em;
-  color: var(--tactical-gold);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.tax-body {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  line-height: 1.65;
-}
-
-.btn-submit {
-  width: 100%;
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #fff;
-  background: var(--dragon-red);
-  padding: 1.1rem;
-  clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
-  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-  margin-bottom: 1rem;
-  display: block;
-}
-.btn-submit:hover {
-  background: #ff3d53;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(238, 38, 62, 0.45);
-}
-
-.redirect-notice {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-  line-height: 1.7;
-  text-align: center;
-}
-
-/* SUCCESS STATE */
-.form-success {
-  display: none;
-  text-align: center;
-  padding: 4rem 2rem;
-}
-.form-success.visible { display: block; }
-.success-check {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  background: rgba(0, 100, 0, 0.2);
-  border: 2px solid var(--cougar-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 2rem;
-  animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-@keyframes pop-in {
-  0% { transform: scale(0); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.success-check svg {
-  width: 32px; height: 32px;
-  stroke: var(--cougar-green);
-  filter: brightness(1.6);
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  animation: draw-check 0.5s ease 0.3s forwards;
-}
-@keyframes draw-check { to { stroke-dashoffset: 0; } }
-.success-title {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  color: var(--text-primary);
-  letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-}
-.success-body {
-  font-size: 1.05rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto 1.5rem;
-}
-.success-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 1.5rem;
-}
-.success-note {
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
-  color: var(--text-muted);
-}
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -2096,6 +1892,188 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 }
 
 /* ============================================================
+   ADMIN — Trigger dot + passphrase-gated progress editor
+   ============================================================ */
+.admin-trigger {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--tactical-gold);
+  opacity: 0.18;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.admin-trigger:hover,
+.admin-trigger:focus-visible {
+  opacity: 0.7;
+  transform: scale(1.4);
+  outline: none;
+}
+
+.admin-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(6, 14, 32, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.admin-overlay:not([hidden]) {
+  opacity: 1;
+  pointer-events: auto;
+}
+.admin-panel {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface-low);
+  border: 1px solid var(--ghost-border);
+  border-top: 2px solid var(--tactical-gold);
+  border-radius: 2px;
+  padding: 2.25rem 2rem 2rem;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+.admin-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.admin-close:hover { color: var(--text-primary); }
+.admin-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.25em;
+  color: var(--tactical-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.admin-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.admin-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.admin-input {
+  width: 100%;
+  background: var(--surface-mid);
+  border: 1px solid var(--ghost-border);
+  border-radius: 2px;
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.7rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.admin-input:focus {
+  border-color: rgba(234, 195, 74, 0.45);
+  background: var(--surface-highest);
+}
+.admin-input-num {
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+.admin-field {
+  margin-bottom: 1rem;
+}
+.admin-error {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--dragon-red);
+  min-height: 1em;
+  margin: 0.5rem 0 0.75rem;
+  text-transform: uppercase;
+}
+.admin-status {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--atmospheric-blue);
+  min-height: 1em;
+  margin: 0.75rem 0 0.25rem;
+  text-transform: uppercase;
+}
+.admin-status.error { color: var(--dragon-red); }
+.admin-status.ok { color: var(--tactical-gold); }
+.admin-btn {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--surface-lowest);
+  background: var(--tactical-gold);
+  border: none;
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  border-radius: 2px;
+}
+.admin-btn:hover:not(:disabled) {
+  background: var(--hawkeye-gold);
+  transform: translateY(-1px);
+}
+.admin-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.admin-btn-secondary {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--ghost-border);
+}
+.admin-btn-secondary:hover:not(:disabled) {
+  background: var(--surface-mid);
+  color: var(--text-primary);
+  transform: none;
+}
+.admin-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+.admin-actions .admin-btn { flex: 0 0 auto; }
+.admin-step[hidden] { display: none; }
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
@@ -2115,7 +2093,6 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   .fini-columns { grid-template-columns: 1fr; }
   .criteria-grid { grid-template-columns: 1fr; }
   .tiers-grid { grid-template-columns: 1fr; }
-  .form-row { grid-template-columns: 1fr; }
   .footer-cols { grid-template-columns: 1fr; gap: 2rem; }
   .hero-countdown-wrap { flex-direction: column; align-items: flex-start; }
   .man-photo-col { display: flex; flex-direction: column; }
@@ -2130,11 +2107,10 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 @media (max-width: 480px) {
   .hero-h1 { font-size: clamp(2.8rem, 12vw, 4rem); }
   .hero-content { padding: 100px 1.25rem 0; }
-  #mission, #the-man, #fini-flight, #scholarship, #donate { padding: 4rem 1.25rem; }
+  #mission, #the-man, #fini-flight, #first-award, #scholarship, #donate { padding: 4rem 1.25rem; }
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-countdown-wrap { padding: 1.25rem; }
   .countdown-boxes { gap: 0.5rem; }
-  .form-panel { padding: 1.5rem 1.25rem; }
 }
 
 /* ============================================================
@@ -2233,6 +2209,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   <ul class="nav-links" id="nav-links">
     <li><a href="#mission">Story</a></li>
     <li><a href="#fini-flight">The Flight</a></li>
+    <li><a href="#first-award">First Award</a></li>
     <li><a href="#scholarship">Scholarship</a></li>
     <li><a href="#donate">Donate</a></li>
   </ul>
@@ -2265,7 +2242,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   <div class="hero-content">
     <div class="hero-top-bar reveal">
       <div class="classification-stamp">// Campaign Brief — Authorized Use Only</div>
-      <div class="telemetry-chip">Fini Flight: Apr 9 · Active</div>
+      <div class="telemetry-chip">First Award: May 27, 2027 · Active</div>
     </div>
 
     <p class="hero-eyebrow reveal reveal-delay-1">Lt. Col. Dustin "Mako" Willard · USAF</p>
@@ -2321,7 +2298,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 
   <!-- COUNTDOWN -->
   <div class="hero-countdown-wrap reveal reveal-delay-5">
-    <div class="countdown-label">Fini Flight Countdown · April 9, 2026 · Beale AFB</div>
+    <div class="countdown-label">First Award Countdown · May 27, 2027 · Kennedy HS</div>
     <div class="countdown-boxes">
       <div class="countdown-box">
         <div class="countdown-num" id="hero-days">00</div>
@@ -2366,13 +2343,14 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
     <div class="mission-right">
       <div class="progress-card reveal reveal-delay-1">
         <div class="progress-header">
-          <div class="progress-raised">$15,500</div>
-          <div class="progress-goal">Goal: $25,000</div>
+          <div class="progress-raised" id="progress-raised">$15,500</div>
+          <div class="progress-goal" id="progress-goal">Goal: $25,000</div>
         </div>
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" id="mission-progress-bar"></div>
         </div>
-        <div class="progress-pct">62% funded — Join us to reach the milestone</div>
+        <div class="progress-pct" id="progress-pct">62% funded — Join us to reach the milestone</div>
+        <button class="admin-trigger" id="admin-trigger" aria-label="Administrator access" title=""></button>
       </div>
 
       <div class="phases-list reveal reveal-delay-2">
@@ -2489,7 +2467,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 </section>
 
 <!-- ============================================================
-     SECTION 4: THE FINI FLIGHT
+     SECTION 4: THE FINI FLIGHT — RETROSPECTIVE
      ============================================================ -->
 <section id="fini-flight" aria-label="The Fini Flight">
   <div class="fini-bg">
@@ -2501,48 +2479,80 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   <div class="fini-overlay"></div>
 
   <div class="fini-inner">
-    <div class="section-marker fini-section-marker reveal">02 / The Final Mission</div>
+    <div class="section-marker fini-section-marker reveal">02 / The Final Mission — Flown</div>
 
-    <div class="fini-countdown-big reveal reveal-delay-1">
-      <div class="fini-box">
-        <div class="fini-num" id="fini-days">00</div>
-        <div class="fini-unit">Days</div>
-      </div>
-      <div class="fini-sep">:</div>
-      <div class="fini-box">
-        <div class="fini-num" id="fini-hours">00</div>
-        <div class="fini-unit">Hours</div>
-      </div>
-      <div class="fini-sep">:</div>
-      <div class="fini-box">
-        <div class="fini-num" id="fini-mins">00</div>
-        <div class="fini-unit">Minutes</div>
-      </div>
-      <div class="fini-sep">:</div>
-      <div class="fini-box">
-        <div class="fini-num" id="fini-secs">00</div>
-        <div class="fini-unit">Seconds</div>
-      </div>
+    <div class="fini-retro-stamp reveal reveal-delay-1">
+      <div class="fini-retro-status">// Mission Complete</div>
+      <div class="fini-retro-date">04 / 09 / 2026</div>
+      <div class="fini-retro-location">Beale Air Force Base · California</div>
     </div>
 
-    <p class="fini-date-label reveal reveal-delay-2">April 9, 2026 · Beale Air Force Base, California</p>
+    <p class="fini-date-label reveal reveal-delay-2">Wheels down. Twenty years of active service at rest.</p>
 
     <div class="fini-columns">
       <div class="reveal reveal-delay-2">
-        <div class="fini-col-title">What Is a Fini Flight?</div>
+        <div class="fini-col-title">What a Fini Flight Is</div>
         <p class="fini-col-body">
-          The "Fini Flight" is one of military aviation's most revered traditions, tracing its roots to the Army Air Forces in World War II. It marks an aviator's final departure from active service. At Beale Air Force Base, the Fini Flight of a Dragon Lady pilot is among the most elite ceremonies in all of aviation. Upon landing, the pilot is met by family, squadron mates, and base leadership — and traditionally doused with a fire hose and champagne. It is a moment of profound transition: the end of a mission that has spanned continents, decades, and altitudes that most humans will never reach.
+          The "Fini Flight" is one of military aviation's most revered traditions, tracing its roots to the Army Air Forces in World War II. It marks an aviator's final departure from active service. At Beale Air Force Base, the Fini Flight of a Dragon Lady pilot is among the most elite ceremonies in all of aviation. On April 9th, Lt. Col. Willard was met on the tarmac by his family, his squadron mates, and base leadership — and, in keeping with tradition, doused with a fire hose and champagne. It was a moment of profound transition: the close of a mission that has spanned continents, decades, and altitudes most humans will never reach.
         </p>
       </div>
 
       <div class="reveal reveal-delay-3">
         <div class="fini-col-title">The End of an Era</div>
         <p class="fini-col-body">
-          Lt. Col. Willard's retirement coincides with the phased divestment of the U-2 Dragon Lady program itself, with full fleet retirement scheduled for 2026. His final flight is not just the close of a personal chapter — it marks the twilight of one of the most legendary aviation programs in military history. The endowment launch on April 9th transforms this moment of farewell into a permanent gift to the next generation, ensuring that a Cedar Rapids kid who touched the edge of space will forever inspire those who follow.
+          After more than two decades in uniform — from the flightline at Iowa ROTC to classified missions across four combat theaters — Lt. Col. Willard's final flight closed one of the most demanding chapters a military aviator can fly. The endowment launched that day now carries the mission forward, transforming a moment of farewell into a permanent gift to the next generation of Cedar Rapids kids learning to aim high.
         </p>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4B: THE FIRST AWARD — Kennedy HS Commencement Countdown
+     ============================================================ -->
+<section id="first-award" aria-label="The First Award">
+  <div class="award-bg">
+    <img src="https://res.cloudinary.com/dsbllwpbh/image/upload/q_auto/f_auto/v1776865680/mako-endowment/kennedy-ceremony-bg.jpg" alt="Graduating seniors in green gowns and gold tassels facing a lit stage">
+  </div>
+  <div class="award-overlay"></div>
+
+  <div class="award-inner">
+    <div class="section-marker award-section-marker reveal">02.5 / The Mission Forward</div>
+
+    <h2 class="award-title reveal reveal-delay-1">The First Scholarship Is Awarded</h2>
+    <div class="award-accent-line reveal reveal-delay-1"></div>
+    <p class="award-subtitle reveal reveal-delay-2">
+      The next chapter of the legacy begins at a podium in Cedar Rapids — the same hallways where Mako learned to aim high.
+    </p>
+
+    <div class="award-countdown-big reveal reveal-delay-2">
+      <div class="award-box">
+        <div class="award-num" id="award-days">00</div>
+        <div class="award-unit">Days</div>
+      </div>
+      <div class="award-sep">:</div>
+      <div class="award-box">
+        <div class="award-num" id="award-hours">00</div>
+        <div class="award-unit">Hours</div>
+      </div>
+      <div class="award-sep">:</div>
+      <div class="award-box">
+        <div class="award-num" id="award-mins">00</div>
+        <div class="award-unit">Minutes</div>
+      </div>
+      <div class="award-sep">:</div>
+      <div class="award-box">
+        <div class="award-num" id="award-secs">00</div>
+        <div class="award-unit">Seconds</div>
+      </div>
+    </div>
+
+    <p class="award-date-label reveal reveal-delay-3">Thursday · May 27, 2027 · 7:00 PM CT · Kennedy High School, Cedar Rapids</p>
+
+    <p class="award-note reveal reveal-delay-3">
+      On commencement night, the first Lt. Col. Dustin "Mako" Willard Scholarship will be presented to a graduating Kennedy Cougar — the opening disbursement of an endowment designed to run in perpetuity.
+    </p>
   </div>
 </section>
 
@@ -2601,188 +2611,42 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 </section>
 
 <!-- ============================================================
-     SECTION 6: DONATE (TIERS + FORM)
+     SECTION 6: DONATE — TIERS
      ============================================================ -->
 <section id="donate" aria-label="Donate">
   <div class="donate-inner">
     <div class="section-marker reveal">04 / Secure the Legacy</div>
     <h2 class="donate-title reveal reveal-delay-1">Choose Your Altitude</h2>
-    <p class="donate-subtitle reveal reveal-delay-2">Each tier is named in honor of the mission. Click any tier to pre-select it in the form below.</p>
+    <p class="donate-subtitle reveal reveal-delay-2">Each tier is named in honor of the mission. Select any tier for inspiration, then make your gift through the official CRCSF portal below.</p>
 
     <!-- TIER CARDS -->
     <div class="tiers-grid" id="tiers-grid">
-      <div class="tier-card reveal reveal-delay-1" data-amount="100" role="button" tabindex="0" aria-label="Select $100 tier">
-        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+      <div class="tier-card reveal reveal-delay-1" data-amount="100" role="button" tabindex="0" aria-label="$100 tier — give below">
         <div class="tier-amount">$100</div>
         <div class="tier-name">The Cougar Vanguard</div>
         <p class="tier-desc">Funds textbook and supply stipends for incoming college freshmen.</p>
       </div>
 
-      <div class="tier-card reveal reveal-delay-2" data-amount="500" role="button" tabindex="0" aria-label="Select $500 tier">
-        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+      <div class="tier-card reveal reveal-delay-2" data-amount="500" role="button" tabindex="0" aria-label="$500 tier — give below">
         <div class="tier-amount">$500</div>
         <div class="tier-name">The Aviator's Circle</div>
         <p class="tier-desc">Provides foundational tuition support for future engineers and leaders.</p>
       </div>
 
-      <div class="tier-card featured reveal reveal-delay-3" data-amount="1085" role="button" tabindex="0" aria-label="Select $1,085 featured tier">
-        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+      <div class="tier-card featured reveal reveal-delay-3" data-amount="1087" role="button" tabindex="0" aria-label="$1,087 featured tier — give below">
         <div class="tier-featured-badge">⭐ Featured Tier</div>
-        <div class="tier-amount">$1,085</div>
+        <div class="tier-amount">$1,087</div>
         <div class="tier-name">The Fini Flight Commemorative</div>
-        <p class="tier-desc">A precise tier honoring tail number 1085 recently retired at Beale AFB. Certificate of appreciation + campaign recognition.</p>
+        <p class="tier-desc">A precise tier honoring tail number 1087 — the U-2 that bore Mako's name. Certificate of appreciation + campaign recognition.</p>
       </div>
 
-      <div class="tier-card reveal reveal-delay-4" data-amount="5000" role="button" tabindex="0" aria-label="Select $5,000+ tier">
-        <div class="tier-selected-indicator" aria-hidden="true">✓</div>
+      <div class="tier-card reveal reveal-delay-4" data-amount="5000" role="button" tabindex="0" aria-label="$5,000+ tier — give below">
         <div class="tier-amount">$5,000+</div>
         <div class="tier-name">The Commander's Council</div>
         <p class="tier-desc">A legacy-defining contribution that permanently anchors the endowment's corpus. Named co-benefactor status.</p>
       </div>
     </div>
 
-    <div class="custom-amount-row reveal reveal-delay-5">
-      <span class="custom-amount-label">// Or enter your own amount →</span>
-    </div>
-
-    <!-- DONATION FORM -->
-    <div class="form-panel reveal reveal-delay-2" id="donation-form-panel">
-
-      <div id="form-fields-wrap">
-        <div class="form-header">
-          <div class="form-title">// Mission: Secure the Legacy</div>
-          <div class="form-telemetry">
-            <span class="form-chip">Raised: $15,500</span>
-            <span class="form-chip">Goal: $25,000</span>
-            <span class="form-chip">62% Funded</span>
-            <span class="form-chip">501(c)(3) Verified</span>
-          </div>
-        </div>
-
-        <!-- FREQUENCY TOGGLE -->
-        <div class="freq-toggle" role="group" aria-label="Donation frequency">
-          <button class="freq-btn active" data-freq="one-time" type="button">One-Time</button>
-          <button class="freq-btn" data-freq="monthly" type="button">Monthly</button>
-        </div>
-
-        <!-- AMOUNT PILLS -->
-        <div class="amount-pills" id="amount-pills" role="group" aria-label="Select donation amount">
-          <button class="amount-pill" data-pill="100" type="button">$100</button>
-          <button class="amount-pill" data-pill="500" type="button">$500</button>
-          <button class="amount-pill" data-pill="1085" type="button">$1,085</button>
-          <button class="amount-pill" data-pill="5000" type="button">$5,000</button>
-        </div>
-
-        <form id="donation-form" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="custom-amount">$ Custom Amount</label>
-            <input
-              type="number"
-              id="custom-amount"
-              name="amount"
-              class="form-input mono-input"
-              placeholder="Enter Amount"
-              min="1"
-              aria-label="Custom donation amount"
-            >
-          </div>
-
-          <div class="form-divider">// Your Details</div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="first-name">First Name *</label>
-              <input type="text" id="first-name" name="firstName" class="form-input" placeholder="First Name" required autocomplete="given-name">
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="lastName" class="form-input" placeholder="Last Name" autocomplete="family-name">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address *</label>
-            <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="phone">Phone (Optional)</label>
-            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000" autocomplete="tel">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="connection">Your Connection</label>
-            <select id="connection" name="connection" class="form-select">
-              <option value="" disabled selected>Select your connection</option>
-              <option value="kennedy-alumni">Kennedy High School Alumni</option>
-              <option value="iowa-alumni">University of Iowa Alumni</option>
-              <option value="military">Military Colleague &amp; Veteran</option>
-              <option value="defense">Defense &amp; Aerospace Industry</option>
-              <option value="family">Family &amp; Friends of Lt. Col. Willard</option>
-              <option value="beale">Beale AFB Community</option>
-              <option value="general">General Supporter</option>
-            </select>
-          </div>
-
-          <div class="form-divider">// Dedication (Optional)</div>
-
-          <div class="form-group">
-            <label class="form-label" for="dedication">In Honor / Memory of</label>
-            <input type="text" id="dedication" name="dedication" class="form-input" placeholder="Name (optional)">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="message">Message to the Willard Family</label>
-            <textarea id="message" name="message" class="form-textarea" rows="3" placeholder="Your message (optional)"></textarea>
-          </div>
-
-          <!-- ANON CHECKBOX -->
-          <div class="anon-check-row" id="anon-row" role="checkbox" aria-checked="false" tabindex="0">
-            <div class="anon-check-box" id="anon-check-box">✓</div>
-            <span class="anon-check-label">[ ] I wish to remain anonymous on the donor honor roll</span>
-          </div>
-
-          <!-- TAX BOX -->
-          <div class="tax-box">
-            <div class="tax-title">Your Gift Is 100% Tax-Deductible</div>
-            <p class="tax-body">Administered by the Cedar Rapids Community Schools Foundation, a registered 501(c)(3) nonprofit organization. You will receive an official tax receipt at the email address provided.</p>
-          </div>
-
-          <!-- SUBMIT -->
-          <button type="submit" class="btn-submit" id="submit-btn">
-            Secure the Legacy — Donate Today →
-          </button>
-
-          <p class="redirect-notice">
-            // By submitting, you will be redirected to the Cedar Rapids Community Schools Foundation's secure payment portal. Your information is protected and will never be sold or shared. This is a campaign prototype — payment is processed exclusively by CRCSF.
-          </p>
-        </form>
-      </div>
-
-      <!-- SUCCESS STATE -->
-      <div class="form-success" id="form-success">
-        <div class="success-check">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-        </div>
-        <div class="success-title">Mission Secured.</div>
-        <p class="success-body" id="success-body">
-          Thank you. Your legacy gift has been received.
-        </p>
-        <p class="success-body" id="success-receipt" style="font-size:0.9rem;">
-          An official tax receipt will be sent to your email address.
-        </p>
-        <div class="success-buttons">
-          <button class="btn-primary" id="share-btn" type="button">Share This Campaign</button>
-          <a href="#hero" class="btn-ghost">Return to Top</a>
-        </div>
-        <p class="success-note">
-          // You will receive confirmation from the Cedar Rapids Community Schools Foundation within 2 business days.
-        </p>
-      </div>
-
-    </div>
   </div>
 </section>
 
@@ -2833,6 +2697,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
       <ul class="footer-links">
         <li><a href="#mission">Our Story</a></li>
         <li><a href="#fini-flight">The Flight</a></li>
+        <li><a href="#first-award">First Award</a></li>
         <li><a href="#scholarship">Scholarship</a></li>
         <li><a href="#donate">Donate</a></li>
         <li><a href="#the-man">Biography</a></li>
@@ -2854,6 +2719,40 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 </footer>
 
 <!-- ============================================================
+     ADMIN MODAL — Progress counter editor (gated by passphrase)
+     ============================================================ -->
+<div class="admin-overlay" id="admin-overlay" role="dialog" aria-modal="true" aria-labelledby="admin-title" hidden>
+  <div class="admin-panel">
+    <button class="admin-close" id="admin-close" aria-label="Close">×</button>
+    <div class="admin-eyebrow">// Authorized Access</div>
+    <div class="admin-title" id="admin-title">Progress Counter</div>
+
+    <div class="admin-step" data-step="password">
+      <label class="admin-label" for="admin-password">Passphrase</label>
+      <input type="password" id="admin-password" class="admin-input" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <div class="admin-error" id="admin-password-error"></div>
+      <button class="admin-btn" id="admin-unlock" type="button">Authenticate →</button>
+    </div>
+
+    <div class="admin-step" data-step="edit" hidden>
+      <div class="admin-field">
+        <label class="admin-label" for="admin-raised">Raised ($)</label>
+        <input type="number" id="admin-raised" class="admin-input admin-input-num" min="0" step="1" inputmode="numeric">
+      </div>
+      <div class="admin-field">
+        <label class="admin-label" for="admin-goal">Goal ($)</label>
+        <input type="number" id="admin-goal" class="admin-input admin-input-num" min="1" step="1" inputmode="numeric">
+      </div>
+      <div class="admin-status" id="admin-status"></div>
+      <div class="admin-actions">
+        <button class="admin-btn admin-btn-secondary" id="admin-cancel" type="button">Cancel</button>
+        <button class="admin-btn" id="admin-save" type="button">Save &amp; Exit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
      JAVASCRIPT
      ============================================================ -->
 <script>
@@ -2861,19 +2760,20 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   'use strict';
 
   /* ----------------------------------------------------------
-     1. COUNTDOWN TIMER
+     1. COUNTDOWN TIMER — First Award at Kennedy HS Commencement
      ---------------------------------------------------------- */
-  const FINI_DATE = new Date('2026-04-09T14:00:00-07:00');
+  const CEREMONY_DATE = new Date('2027-05-27T19:00:00-05:00');
 
   function pad(n) { return String(n).padStart(2, '0'); }
 
   function updateCountdowns() {
     const now = new Date();
-    const diff = FINI_DATE - now;
+    const diff = CEREMONY_DATE - now;
+
+    const ids = ['hero-days','hero-hours','hero-mins','hero-secs','award-days','award-hours','award-mins','award-secs'];
 
     if (diff <= 0) {
-      const els = ['hero-days','hero-hours','hero-mins','hero-secs','fini-days','fini-hours','fini-mins','fini-secs'];
-      els.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = '00'; });
+      ids.forEach(id => { const el = document.getElementById(id); if (el) el.textContent = '00'; });
       return;
     }
 
@@ -2884,7 +2784,7 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
 
     const pairs = [
       ['hero-days', days], ['hero-hours', hours], ['hero-mins', mins], ['hero-secs', secs],
-      ['fini-days', days], ['fini-hours', hours], ['fini-mins', mins], ['fini-secs', secs]
+      ['award-days', days], ['award-hours', hours], ['award-mins', mins], ['award-secs', secs]
     ];
     pairs.forEach(([id, val]) => {
       const el = document.getElementById(id);
@@ -2992,16 +2892,96 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   document.querySelectorAll('.stat-number[data-target]').forEach(el => statsObserver.observe(el));
 
   /* ----------------------------------------------------------
-     4. PROGRESS BAR
+     4. PROGRESS BAR + JSONBIN-BACKED COUNTER + ADMIN MODAL
      ---------------------------------------------------------- */
-  const progressBar = document.getElementById('mission-progress-bar');
+  const BIN_ID = '69e90b96aaba882197284e12';
+  // Paste a JSONBin Access Key scoped to this bin to enable saves.
+  // Leave blank to run read-only (admin panel will refuse to save).
+  const JSONBIN_ACCESS_KEY = '$2a$10$1klYqjS.kOCDRaWtb4ODfebZSgoZqqIw.raSjPfk3W25fDC.8rH5u';
+  const ADMIN_PASS = 'sharkboy';
+  const CACHE_KEY = 'mako-progress-v1';
+  const CACHE_TTL_MS = 5 * 60 * 1000;
+
+  const progressBar    = document.getElementById('mission-progress-bar');
+  const progressRaised = document.getElementById('progress-raised');
+  const progressGoal   = document.getElementById('progress-goal');
+  const progressPct    = document.getElementById('progress-pct');
+
+  let currentData = { raised: 15500, goal: 25000 };
+  let dataReady   = false;
+  let scrolledIn  = false;
+
+  function fmtMoney(n) { return '$' + Math.round(n).toLocaleString(); }
+
+  function maybeAnimateBar() {
+    if (!progressBar || !dataReady || !scrolledIn) return;
+    if (progressBar.dataset.animated) return;
+    progressBar.dataset.animated = '1';
+    const pct = Math.max(0, Math.min(100, (currentData.raised / currentData.goal) * 100));
+    setTimeout(() => { progressBar.style.width = pct.toFixed(1) + '%'; }, 200);
+  }
+
+  function renderProgress(data) {
+    currentData = {
+      raised: Number(data.raised) || 0,
+      goal:   Math.max(1, Number(data.goal) || 1),
+    };
+    const pct = Math.max(0, Math.min(100, (currentData.raised / currentData.goal) * 100));
+    if (progressRaised) progressRaised.textContent = fmtMoney(currentData.raised);
+    if (progressGoal)   progressGoal.textContent   = 'Goal: ' + fmtMoney(currentData.goal);
+    if (progressPct)    progressPct.textContent    = Math.round(pct) + '% funded — Join us to reach the milestone';
+    dataReady = true;
+    maybeAnimateBar();
+  }
+
+  function readCache() {
+    try {
+      const raw = sessionStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return null;
+      if (Date.now() - (parsed.t || 0) > CACHE_TTL_MS) return null;
+      return parsed.d || null;
+    } catch (_) { return null; }
+  }
+
+  function writeCache(d) {
+    try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), d: d })); } catch (_) {}
+  }
+
+  function invalidateCache() {
+    try { sessionStorage.removeItem(CACHE_KEY); } catch (_) {}
+  }
+
+  async function fetchProgress() {
+    const cached = readCache();
+    if (cached) { renderProgress(cached); return; }
+    try {
+      const res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
+        headers: { 'X-Bin-Meta': 'false' }
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const json = await res.json();
+      const record = json && json.record ? json.record : json;
+      if (record && typeof record.raised !== 'undefined' && typeof record.goal !== 'undefined') {
+        writeCache(record);
+        renderProgress(record);
+      } else {
+        renderProgress(currentData);
+      }
+    } catch (err) {
+      // Leave the initial markup values visible on failure.
+      renderProgress(currentData);
+    }
+  }
+
   if (progressBar) {
     const progressObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach(e => {
-          if (e.isIntersecting && !progressBar.dataset.animated) {
-            progressBar.dataset.animated = '1';
-            setTimeout(() => { progressBar.style.width = '62%'; }, 200);
+          if (e.isIntersecting) {
+            scrolledIn = true;
+            maybeAnimateBar();
           }
         });
       },
@@ -3009,6 +2989,118 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
     );
     progressObserver.observe(progressBar.closest('#mission'));
   }
+
+  fetchProgress();
+
+  /* ---------- Admin modal ---------- */
+  const adminTrigger  = document.getElementById('admin-trigger');
+  const adminOverlay  = document.getElementById('admin-overlay');
+  const adminClose    = document.getElementById('admin-close');
+  const adminCancel   = document.getElementById('admin-cancel');
+  const adminUnlock   = document.getElementById('admin-unlock');
+  const adminSave     = document.getElementById('admin-save');
+  const adminPassword = document.getElementById('admin-password');
+  const adminPassErr  = document.getElementById('admin-password-error');
+  const adminRaisedIn = document.getElementById('admin-raised');
+  const adminGoalIn   = document.getElementById('admin-goal');
+  const adminStatus   = document.getElementById('admin-status');
+  const adminSteps    = adminOverlay ? adminOverlay.querySelectorAll('.admin-step') : [];
+
+  function showStep(name) {
+    adminSteps.forEach(s => { s.hidden = s.dataset.step !== name; });
+  }
+
+  function setStatus(msg, kind) {
+    if (!adminStatus) return;
+    adminStatus.textContent = msg || '';
+    adminStatus.classList.remove('error', 'ok');
+    if (kind) adminStatus.classList.add(kind);
+  }
+
+  function openAdmin() {
+    if (!adminOverlay) return;
+    adminOverlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    showStep('password');
+    if (adminPassword) { adminPassword.value = ''; adminPassword.focus(); }
+    if (adminPassErr)  adminPassErr.textContent = '';
+    setStatus('', null);
+  }
+
+  function closeAdmin() {
+    if (!adminOverlay) return;
+    adminOverlay.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  function unlockAdmin() {
+    const val = (adminPassword && adminPassword.value || '').trim().toLowerCase();
+    if (val !== ADMIN_PASS) {
+      if (adminPassErr) adminPassErr.textContent = 'Incorrect passphrase.';
+      return;
+    }
+    if (adminPassErr) adminPassErr.textContent = '';
+    if (adminRaisedIn) adminRaisedIn.value = currentData.raised;
+    if (adminGoalIn)   adminGoalIn.value   = currentData.goal;
+    setStatus('', null);
+    showStep('edit');
+    if (adminRaisedIn) adminRaisedIn.focus();
+  }
+
+  async function saveAdmin() {
+    const raised = Math.max(0, Math.floor(Number(adminRaisedIn && adminRaisedIn.value)));
+    const goal   = Math.max(1, Math.floor(Number(adminGoalIn && adminGoalIn.value)));
+    if (!Number.isFinite(raised) || !Number.isFinite(goal)) {
+      setStatus('Please enter valid numbers.', 'error');
+      return;
+    }
+    if (!JSONBIN_ACCESS_KEY) {
+      setStatus('Admin not configured — missing Access Key.', 'error');
+      return;
+    }
+    setStatus('Saving…', null);
+    adminSave.disabled = true;
+    try {
+      const res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Access-Key': JSONBIN_ACCESS_KEY,
+        },
+        body: JSON.stringify({ raised: raised, goal: goal }),
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      invalidateCache();
+      const fresh = { raised: raised, goal: goal };
+      writeCache(fresh);
+      // Reset the bar so the new percentage animates cleanly.
+      if (progressBar) {
+        progressBar.dataset.animated = '';
+        progressBar.style.width = '0%';
+      }
+      renderProgress(fresh);
+      // Re-trigger animation if the section is in view.
+      if (scrolledIn) {
+        progressBar && (progressBar.dataset.animated = '');
+        maybeAnimateBar();
+      }
+      setStatus('Saved ✓', 'ok');
+      setTimeout(closeAdmin, 700);
+    } catch (err) {
+      setStatus('Save failed — ' + (err && err.message || 'error'), 'error');
+    } finally {
+      adminSave.disabled = false;
+    }
+  }
+
+  if (adminTrigger)  adminTrigger.addEventListener('click', openAdmin);
+  if (adminClose)    adminClose.addEventListener('click', closeAdmin);
+  if (adminCancel)   adminCancel.addEventListener('click', closeAdmin);
+  if (adminUnlock)   adminUnlock.addEventListener('click', unlockAdmin);
+  if (adminSave)     adminSave.addEventListener('click', saveAdmin);
+  if (adminPassword) adminPassword.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); unlockAdmin(); } });
+  if (adminOverlay)  adminOverlay.addEventListener('click', e => { if (e.target === adminOverlay) closeAdmin(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && adminOverlay && !adminOverlay.hidden) closeAdmin(); });
 
   /* ----------------------------------------------------------
      5. NAV SCROLL PROGRESS
@@ -3044,83 +3136,19 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   sections.forEach(s => navObserver.observe(s));
 
   /* ----------------------------------------------------------
-     7. TIER CARD SELECTION
+     7. TIER CARDS — scroll to eTapestry portal on click
      ---------------------------------------------------------- */
-  const tierCards = document.querySelectorAll('.tier-card');
-  const customAmountInput = document.getElementById('custom-amount');
-  const amountPills = document.querySelectorAll('.amount-pill');
-
-  function selectAmount(amount) {
-    // update pills
-    amountPills.forEach(p => {
-      p.classList.toggle('active', parseInt(p.dataset.pill, 10) === amount);
-    });
-    // update custom input
-    if (customAmountInput) customAmountInput.value = amount;
-    // update tier cards
-    tierCards.forEach(c => {
-      c.classList.toggle('selected', parseInt(c.dataset.amount, 10) === amount);
-    });
-  }
-
-  tierCards.forEach(card => {
-    function handleTierSelect() {
-      const amount = parseInt(card.dataset.amount, 10);
-      selectAmount(amount);
-      const formPanel = document.getElementById('donation-form-panel');
-      if (formPanel) {
-        setTimeout(() => {
-          formPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      }
+  document.querySelectorAll('.tier-card').forEach(card => {
+    function goToPortal() {
+      const portal = document.getElementById('donate-live');
+      if (portal) portal.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    card.addEventListener('click', handleTierSelect);
-    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleTierSelect(); } });
+    card.addEventListener('click', goToPortal);
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goToPortal(); } });
   });
 
   /* ----------------------------------------------------------
-     8. AMOUNT PILLS
-     ---------------------------------------------------------- */
-  amountPills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      const amount = parseInt(pill.dataset.pill, 10);
-      selectAmount(amount);
-    });
-  });
-
-  if (customAmountInput) {
-    customAmountInput.addEventListener('input', () => {
-      const val = parseInt(customAmountInput.value, 10);
-      amountPills.forEach(p => p.classList.toggle('active', parseInt(p.dataset.pill, 10) === val));
-      tierCards.forEach(c => c.classList.toggle('selected', parseInt(c.dataset.amount, 10) === val));
-    });
-  }
-
-  /* ----------------------------------------------------------
-     9. FREQUENCY TOGGLE
-     ---------------------------------------------------------- */
-  document.querySelectorAll('.freq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    });
-  });
-
-  /* ----------------------------------------------------------
-     10. ANONYMOUS CHECKBOX
-     ---------------------------------------------------------- */
-  const anonRow = document.getElementById('anon-row');
-  if (anonRow) {
-    function toggleAnon() {
-      const checked = anonRow.classList.toggle('checked');
-      anonRow.setAttribute('aria-checked', String(checked));
-    }
-    anonRow.addEventListener('click', toggleAnon);
-    anonRow.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleAnon(); } });
-  }
-
-  /* ----------------------------------------------------------
-     11. MOBILE NAV HAMBURGER
+     8. MOBILE NAV HAMBURGER
      ---------------------------------------------------------- */
   const hamburger = document.getElementById('nav-hamburger');
   const navLinksEl = document.getElementById('nav-links');
@@ -3134,108 +3162,14 @@ footer > *:not(.footer-bg-video):not(.footer-bg-overlay) {
   }
 
   /* ----------------------------------------------------------
-     12. FORM VALIDATION + SUBMISSION
-     ---------------------------------------------------------- */
-  const donationForm = document.getElementById('donation-form');
-  const formFieldsWrap = document.getElementById('form-fields-wrap');
-  const formSuccess = document.getElementById('form-success');
-
-  if (donationForm) {
-    donationForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Collect values
-      const amount = customAmountInput ? customAmountInput.value.trim() : '';
-      const firstName = document.getElementById('first-name')?.value.trim() || '';
-      const email = document.getElementById('email')?.value.trim() || '';
-
-      let valid = true;
-
-      // Validate amount
-      if (!amount || isNaN(Number(amount)) || Number(amount) < 1) {
-        if (customAmountInput) {
-          customAmountInput.classList.add('error');
-          setTimeout(() => customAmountInput.classList.remove('error'), 600);
-        }
-        valid = false;
-      }
-
-      // Validate first name
-      const firstNameEl = document.getElementById('first-name');
-      if (!firstName) {
-        if (firstNameEl) {
-          firstNameEl.classList.add('error');
-          setTimeout(() => firstNameEl.classList.remove('error'), 600);
-        }
-        valid = false;
-      }
-
-      // Validate email
-      const emailEl = document.getElementById('email');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email || !emailRegex.test(email)) {
-        if (emailEl) {
-          emailEl.classList.add('error');
-          setTimeout(() => emailEl.classList.remove('error'), 600);
-        }
-        valid = false;
-      }
-
-      if (!valid) return;
-
-      // Show success state
-      const formattedAmount = Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
-      const successBody = document.getElementById('success-body');
-      const successReceipt = document.getElementById('success-receipt');
-      if (successBody) {
-        successBody.textContent = `Thank you, ${firstName}. Your legacy gift of ${formattedAmount} has been received.`;
-      }
-      if (successReceipt) {
-        successReceipt.textContent = `An official tax receipt will be sent to ${email}.`;
-      }
-
-      if (formFieldsWrap) formFieldsWrap.style.display = 'none';
-      if (formSuccess) formSuccess.classList.add('visible');
-
-      // Scroll success into view
-      setTimeout(() => {
-        const panel = document.getElementById('donation-form-panel');
-        if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 100);
-    });
-  }
-
-  /* ----------------------------------------------------------
-     13. SHARE BUTTON
-     ---------------------------------------------------------- */
-  const shareBtn = document.getElementById('share-btn');
-  if (shareBtn) {
-    shareBtn.addEventListener('click', async () => {
-      const shareData = {
-        title: 'Lt. Col. Dustin "Mako" Willard Scholarship Endowment',
-        text: 'Join me in honoring Lt. Col. Willard\'s 20+ years of elite military service by establishing a permanent scholarship at Cedar Rapids Kennedy High School.',
-        url: window.location.href
-      };
-      if (navigator.share) {
-        try { await navigator.share(shareData); } catch (_) {}
-      } else {
-        navigator.clipboard?.writeText(window.location.href).then(() => {
-          shareBtn.textContent = 'Link Copied!';
-          setTimeout(() => { shareBtn.textContent = 'Share This Campaign'; }, 2500);
-        });
-      }
-    });
-  }
-
-  /* ----------------------------------------------------------
-     14. INITIAL HERO REVEAL (no wait for scroll)
+     9. INITIAL HERO REVEAL (no wait for scroll)
      ---------------------------------------------------------- */
   document.querySelectorAll('#hero .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('revealed'), 100 + i * 120);
   });
 
   /* ----------------------------------------------------------
-     15. PASSWORD GATE
+     10. PASSWORD GATE
      ---------------------------------------------------------- */
   (function () {
     const PASS = 'mako';
